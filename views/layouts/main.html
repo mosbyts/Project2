@@ -4,9 +4,12 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="/public/styles/styles.css" media="screen" title="no title" charset="utf-8">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
   <title>Pick 'n Chill</title>
 </head>
+
+<body>
 <div id="header">
     <div class="container">
       <div class="row">
@@ -18,12 +21,49 @@
     </div>
 </div>
 
+<div id="searchMovies">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+          <input type="text" placeholder="Search movies here">
+          <button id="searchMoviesBtn" class="btn btn-primary">Submit</button>         
+          <div class="movieGenreDropdown">
+              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Movie Genres</a>      
+              <div class="dropdown-menu" aria-labelledby="movieGenredropdownMenuLink">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Comedy</a>
+                <a class="dropdown-item" href="#">Horror</a>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="suggestedMovies">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <h5 class="text-left">Check out this week's suggested movies!</h5>
-        <!--*Insert this week's suggested movies*-->
+        <!--*Insert this week's suggested movies in a carousel*-->
+       </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="userWatchList">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h5 class="text-left">Your Watchlist</h5>
+        <!--*Insert user's watch list-->
+        <ul>
+          <li>Movie 1</li>
+          <li>Movie 2</li>
+          <li>Movie 3</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -38,7 +78,8 @@
     </div>
   </div>
 </div>
-<body>
+
+<script src="/public/js/index.js"></script>
 
 </body>
 
