@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="/public/styles/styles.css" media="screen" title="no title" charset="utf-8">
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <title>Pick 'n Chill</title>
 </head>
 
@@ -46,8 +47,13 @@
     <div class="row">
       <div class="col-md-12">
         <h5 class="text-left">Check out this week's suggested movies!</h5>
-        <!--*Insert this week's suggested movies in a carousel*-->
-       </div>
+          <div class="main-gallery gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+            <div class="gallery-cell"><img src="#"></div>
+            <div class="gallery-cell"><img src="#"></div>
+            <div class="gallery-cell"><img src="#"></div>
+            <div class="gallery-cell"><img src="#"></div>
+            <div class="gallery-cell"><img src="#"></div>
+          </div>
       </div>
     </div>
   </div>
@@ -80,7 +86,7 @@
 </div>
 
 <script src="/public/js/index.js"></script>
-
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 </body>
 
 </html>
