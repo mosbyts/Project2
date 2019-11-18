@@ -1,26 +1,74 @@
+/* Header CSS Start */
+.logo{
+  height: 35px;
+  width: 35px;
+}
+
+#header{
+  background-color: #88CC88;
+  margin-bottom: 10px;
+}
+
+.glow{
+  color: #FFF;
+  text-align: center;
+  -webkit-animation: glow 3s ease-in-out infinite alternate;
+  -moz-animation: glow 3s ease-in-out infinite alternate;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #88CC88, 0 0 40px #88CC88, 0 0 50px #88CC88, 0 0 60px #88CC88, 0 0 70px #88CC88;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #CAF5CA, 0 0 40px #CAF5CA, 0 0 50px #CAF5CA, 0 0 60px #CAF5CA, 0 0 70px #CAF5CA, 0 0 80px #CAF5CA;
+  }
+}
+
+.caption{
+  color: #DEEDDE;
+}
+/* Header CSS End */
+
+body{
+  background-color: #CAF5CA;
+  font-family: 'Calistoga', cursive;
+}
+
+ /* Carousel CSS Start */
 * {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
   
   .gallery {
-    background: #EEE;
+    background: #F0F0F0;
   }
   
   .gallery-cell {
-    width: 66%;
-    height: 200px;
     margin-right: 10px;
-    background: #8C8;
-    counter-increment: gallery-cell;
   }
   
-  /* cell number */
   .gallery-cell:before {
     display: block;
     text-align: center;
-    content: counter(gallery-cell);
     line-height: 200px;
     font-size: 80px;
     color: white;
   }
+
+  .movieImg{
+    height: 633px;
+    width: 436px;
+  }
+ /* Carousel CSS End */
+
+.userPost{
+  background-color: #FFF;
+  width: 100%;
+}
+
+#footer{
+  background-color: #88CC88
+}

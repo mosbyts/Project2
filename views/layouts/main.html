@@ -3,6 +3,8 @@
 
 <head>
   <meta charset="utf-8">
+  <link rel="shortcut icon" href="https://cdn.imgbin.com/21/24/2/imgbin-pickled-cucumber-child-vegetable-half-sour-pickles-delicious-cucumber-UhBuqig4Xyyyy2kVufS5jWqtQ.jpg" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="/public/styles/styles.css" media="screen" title="no title" charset="utf-8">
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -12,33 +14,19 @@
 
 <body>
 <div id="header">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1 class="text-center">Welcome to Pick 'n Chill!</h1>
-          <h2 class="text-center">Stream the movie you want on your platform.</h2>
-        </div>
-      </div>
-    </div>
-</div>
-
-<div id="searchMovies">
   <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-          <input type="text" placeholder="Search movies here">
-          <button id="searchMoviesBtn" class="btn btn-primary">Submit</button>         
-          <div class="movieGenreDropdown">
-              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Movie Genres</a>      
-              <div class="dropdown-menu" aria-labelledby="movieGenredropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Comedy</a>
-                <a class="dropdown-item" href="#">Horror</a>
-              </div>
-            </div>
-      </div>
-    </div>
+    <nav>
+      <img src="https://cdn.imgbin.com/21/24/2/imgbin-pickled-cucumber-child-vegetable-half-sour-pickles-delicious-cucumber-UhBuqig4Xyyyy2kVufS5jWqtQ.jpg" class="logo">
+      <h1 class="text-left glow title">Pick 'n Chill</h1>
+      <h5 class="text-left font-italic caption">Stream the movie you want on your platform.</h5>
+        <form class="form-inline">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      <h5 class="text-right form-inline"><a href="#">Sign Up</a></h5>
+      <p> | </p>
+      <h5 class="text-right form-inline"><a href="#">Log In</a></h5>
+    </nav>
   </div>
 </div>
 
@@ -46,13 +34,54 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h5 class="text-left">Check out this week's suggested movies!</h5>
+        <h5 class="text-left">This week's suggested movies</h5>
           <div class="main-gallery gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
-            <div class="gallery-cell"><img src="#"></div>
-            <div class="gallery-cell"><img src="#"></div>
-            <div class="gallery-cell"><img src="#"></div>
-            <div class="gallery-cell"><img src="#"></div>
-            <div class="gallery-cell"><img src="#"></div>
+            <div class="gallery-cell"><img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217" class="movieImg"></div>
+            <div class="gallery-cell"><img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fewedit.files.wordpress.com%2F2016%2F08%2Fstranger-things_0.jpg&w=400&c=sc&poi=face&q=85" class="movieImg"></div>
+            <div class="gallery-cell"><img src="http://www.media1.hw-static.com/media/2015/12/fright-night-columbia-pictures-everett-122315.jpg" class="movieImg"></div>
+            <div class="gallery-cell"><img src="https://img.buzzfeed.com/buzzfeed-static/static/2015-02/20/15/enhanced/webdr04/enhanced-13983-1424463205-1.jpg?crop=625:938;0,0" class="movieImg"></div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="movieGenres">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h5 class="text-left">Explore by genre</h5>
+          <div class="card-deck">
+            <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Comedy</h5>
+                    <p class="card-text">Comedians, feel good vibes and life's best medicine: laughter.</p>
+                  </div>
+            </div>
+            <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Romance</h5>
+                    <p class="card-text">Love stories that would even make the Grinch happy.</p>
+                  </div>
+            </div>
+            <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Horror</h5>
+                    <p class="card-text">WATCH OUT! These movies will have you scared to leave your home.</p>
+                  </div>
+            </div>
+            <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Suspense</h5>
+                    <p class="card-text">You'll be on the edge of your seat wondering what's next.</p>
+                  </div>
+            </div>
+            <div class="card" class="genre">
+                  <div class="card-body">
+                    <h5 class="card-title">Documentaries</h5>
+                    <p class="card-text">The truth about life's mysteries lies here.</p>
+                  </div>
+            </div>
           </div>
       </div>
     </div>
@@ -60,16 +89,47 @@
 </div>
 
 <div id="userWatchList">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <h5>Your Watchlist</h5>
+          <div class="main-gallery gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+              <div class="gallery-cell"><img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217" class="movieImg"></div>
+              <div class="gallery-cell"><img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fewedit.files.wordpress.com%2F2016%2F08%2Fstranger-things_0.jpg&w=400&c=sc&poi=face&q=85" class="movieImg"></div>
+              <div class="gallery-cell"><img src="http://www.media1.hw-static.com/media/2015/12/fright-night-columbia-pictures-everett-122315.jpg" class="movieImg"></div>
+              <div class="gallery-cell"><img src="https://img.buzzfeed.com/buzzfeed-static/static/2015-02/20/15/enhanced/webdr04/enhanced-13983-1424463205-1.jpg?crop=625:938;0,0" class="movieImg"></div>
+          </div>
+        </div>
+        <div id="movieReviews">
+            <div class="container">
+              <div class="col-md-7">
+                <h5 class="text-left">Movie Reviews</h5>
+              </div>     
+            </div>
+            <div class="container userPost">
+              <p>Susie</p>
+              <p>"Best movie ever!"</p>
+            </div>
+            <hr></hr>
+            <div class="container userPost">
+                <p>Lauren</p>
+                <p>"Don't even waste your time. I literally lost so many minutes that I'll never get back!!"</p>
+            </div>
+            <hr></hr>
+            <div class="container userPost">
+                <p>Daniel</p>
+                <p>"Woooow"</p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+<div id="twitterFeed">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h5 class="text-left">Your Watchlist</h5>
-        <!--*Insert user's watch list-->
-        <ul>
-          <li>Movie 1</li>
-          <li>Movie 2</li>
-          <li>Movie 3</li>
-        </ul>
+        <h5 class="text-left">Chatter around the world</h5>
       </div>
     </div>
   </div>
@@ -79,12 +139,14 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
+        <p class="text-center">Created by The Stream Team</p>
         <p class="text-center">Copyright 2019</p>
       </div>
     </div>
   </div>
 </div>
 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="/public/js/index.js"></script>
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 </body>
