@@ -43,7 +43,7 @@ body{
   }
   
   .gallery {
-    background: #F0F0F0;
+    background: #88CC88;
   }
   
   .gallery-cell {
@@ -65,10 +65,10 @@ body{
  /* Carousel CSS End */
 
 .userPost{
-  background-color: #FFF;
-  width: 100%;
+  background-color: #CAF5CA;
+  width: 95%;
 }
 
 #footer{
-  background-color: #88CC88
+  background-color: #88CC88;
 }
