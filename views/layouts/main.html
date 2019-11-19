@@ -25,24 +25,27 @@
         <div class="col-md-3"></div>
         <div class="col-md-5">
           <form class="form-inline">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+              <h5 class="text-right d-inline"><a href="#">Sign Up </a></h5>
+              <p class="d-inline"> | </p>
+              <h5 class="text-right d-inline"><a href="#"> Log In</a></h5>
+            <input id="searchMoviesInput" class="form-control" type="search" placeholder="Search" aria-label="Search">
+            <button id="searchMoviesBtn" class="btn btn-outline-success" type="submit">Search</button>
           </form>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-5">
-          <h5 class="text-left font-italic caption">Stream the movie you want on your platform.</h5>
-        </div>
-        <div class="col-md-4"></div>
-        <div class="col-md-3">
-          <h5 class="text-right d-inline"><a href="#">Sign Up</a></h5>
-          <p class="d-inline"> | </p>
-          <h5 class="text-right d-inline"><a href="#">Log In</a></h5>
+          </div>
         </div>
       </div>
     </nav>
+  </div>
+</div>
+
+<div id="userSearchDiv">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h5 class="text-left">Your Search</h5>
+          <div id="yourSearch" class="mb-5"></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -62,7 +65,7 @@
   </div>
 </div>
 
-<div id="movieGenres" class="mb-5">
+<div id="movieGenres" class="mb-1">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -88,7 +91,7 @@
             </div>
             <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title">Suspense</h5>
+                    <h5 class="card-title">Thriller</h5>
                     <p class="card-text">You'll be on the edge of your seat wondering what's next.</p>
                   </div>
             </div>
@@ -103,6 +106,47 @@
     </div>
   </div>
 </div>
+
+<div id="movieGenres" class="mb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+            <div class="card-deck">
+              <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Action</h5>
+                      <p class="card-text">Insert action movie info here.</p>
+                    </div>
+              </div>
+              <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Mystery</h5>
+                      <p class="card-text">Insert mystery movie info here.</p>
+                    </div>
+              </div>
+              <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Fantasy</h5>
+                      <p class="card-text">Insert fantasy movie info here.</p>
+                    </div>
+              </div>
+              <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Sci-Fi</h5>
+                      <p class="card-text">Insert sci-fi movie info here.</p>
+                    </div>
+              </div>
+              <div class="card" class="genre">
+                    <div class="card-body">
+                      <h5 class="card-title">Children's</h5>
+                      <p class="card-text">Insert children's movie info here.</p>
+                    </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <div id="userWatchList" class="mb-5">
     <div class="container">
@@ -163,7 +207,7 @@
 </div>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="/public/js/index.js"></script>
+<script src="/public/js/home.js"></script>
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 </body>
 
