@@ -9,7 +9,7 @@
     getMoviesByCategory(catId); <- replace catId with category id found by running getMovieGenres();
 */
 $(document).ready(function(){
-
+    getPopularMovies();
 });
 
 function getMovieStreamDetails(movieTitle){
@@ -62,5 +62,28 @@ function getMoviesByCategory(catId){
         }
         console.log("**Movie Posters links**")
         console.log(moviePosters);
+    });
+}
+
+function getPopularMovies(){
+    let key = "5f7135150c434e2b62be14b37e1617f5";
+    let queryString = "https://api.themoviedb.org/3/discover/movie?api_key="+key+"&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1"
+    let popularMoviesObject = [];
+    let moviePosterBaseUrl = "http://image.tmdb.org/t/p/w185/";
+    // example http://image.tmdb.org/t/p/w185//kvpNZAQow5es1tSY6XW2jAZuPPG.jpg ... it does require the double backspace
+
+    $.get(queryString, function(results){
+        console.log("*** Get Popular Movies using tMDB api***");
+        console.log(results);
+        for (let i = 0; i < 5; i++){
+            let tempObject = {
+                title: results.results[i].title,
+                poster: moviePosterBaseUrl + results.results[i].poster_path,
+                releaseDate: results.results[i].release_date
+            }
+            popularMoviesObject.push(tempObject);
+        }
+        console.log(popularMoviesObject);
+        //put append to html code here
     });
 }
