@@ -33,6 +33,11 @@ body{
   font-family: 'Calistoga', cursive;
 }
 
+.searchedMovieImg{
+  height: 200px;
+  width: auto;
+}
+
  /* Carousel CSS Start */
 * {
     -webkit-box-sizing: border-box;
