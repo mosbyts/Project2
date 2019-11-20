@@ -7,16 +7,30 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
 </head>
 <body>
-  <div id="header">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h1 class="text-center">Welcome to Pick 'n Chill!</h1>
-            <h2 class="text-center">Stream the movie you want on your platform.</h2>
+<div id="header" class="mb-5">
+  <div class="container">
+    <nav>
+      <div class="row">
+        <div class="col-md-4">
+          <img src="https://webstockreview.net/images/pickle-clipart-gangster-4.png" class="logo">
+          &nbsp;
+          <h1 class="text-left glow d-inline title">Pick 'n Chill</h1>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-5">
+          <form class="form-inline">
+              <h5 class="text-right d-inline"><a href="#">Sign Up </a></h5>
+              <p class="d-inline"> | </p>
+              <h5 class="text-right d-inline"><a href="#"> Log In</a></h5>
+            <input id="searchMoviesInput" class="form-control" type="search" placeholder="Search" aria-label="Search">
+            <button id="searchMoviesBtn" class="btn btn-outline-success" type="submit">Search</button>
+          </form>
           </div>
         </div>
       </div>
+    </nav>
   </div>
+</div>
 
   <form class="clearfix mb-4" action="POST">
     <div class="form-group">
@@ -34,19 +48,21 @@
     <!--Show previous movie reviews here-->
   </div>
 
-  <div id="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <p class="text-center">Copyright 2019</p>
-        </div>
+<div id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p class="text-center mb-0">Created by The Stream Team</p>
+        <p class="text-center">Copyright 2019</p>
       </div>
     </div>
   </div>
-    
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="/js/index.js"></script>
-  <script src="../public/js/home.js"></script>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="/public/js/home.js"></script>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+</body>
       
 </body>
 </html>

@@ -10,8 +10,16 @@
 */
 $(document).ready(function(){
     getPopularMovies();
+    $("#userSearchDiv").hide();
 });
-
+$("#searchMoviesBtn").on("click", function(event){
+    event.preventDefault();
+    var movieTitle = $("#searchMoviesInput").val();
+    getMovieStreamDetails(movieTitle);
+    $("#userSearchDiv").show();
+    //(response.results[0].name).appendTo("#userSearchDiv")
+});
+//functions
 function getMovieStreamDetails(movieTitle){
     var settings = {
         "async": true,
@@ -23,7 +31,7 @@ function getMovieStreamDetails(movieTitle){
             "x-rapidapi-key": "b3aa10f3e9mshf37294a8e218e44p1da36fjsn46d1b673205b"
         }
     }
-    
+
     $.ajax(settings).done(function (response) {
         let streamingLocations = [];
         for (let i = 0; i < response.results[0].locations.length; i++){
@@ -32,10 +40,27 @@ function getMovieStreamDetails(movieTitle){
         console.log("***Searching UtellyAPI***");
         console.log(response);
         console.log("Title: " + response.results[0].name);
-        console.log("Where is it streaming: " + streamingLocations);
+        console.log("Where is it streaming: " + streamingLocations);     
         
+        let divholder = $("<div>", {id: "result1"});
+        let moviePoster = $("<img>", {src: response.results[0].picture, class: "searchedMovieImg"});
+        let titleH5 = $("<h5>");
+        titleH5.append("Movie Title: " + response.results[0].name);
+        let streamingH5 = $("<h5>");
+        for (let i = 0; i < streamingLocations.length; i++){
+            if (i >= 1){
+                streamingH5.append(", ");
+                streamingH5.append(streamingLocations[i]);
+            } else {
+                streamingH5.append(streamingLocations[i]);
+            }
+        }
+        divholder.append(titleH5);
+        divholder.append(moviePoster);
+        divholder.append(streamingH5);
+        divholder.appendTo("#yourSearch");
     });
-}
+};
 
 function getMovieGenres(){
     let key = "5f7135150c434e2b62be14b37e1617f5";

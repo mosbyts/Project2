@@ -97,3 +97,11 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+//Carousel start//
+$(".main-gallery").flickity({
+  // options
+  cellAlign: "left",
+  contain: true
+});
+//Carousel end//
