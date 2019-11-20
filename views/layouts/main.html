@@ -6,6 +6,7 @@
   <link rel="shortcut icon" href="https://webstockreview.net/images/pickle-clipart-gangster-4.png" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
   <link rel="stylesheet" href="/public/styles/styles.css" media="screen" title="no title" charset="utf-8">
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
@@ -14,35 +15,41 @@
 
 <body>
 <div id="header" class="mb-5">
-  <div class="container">
+  <div class="container-fluid">
     <nav>
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-4">
           <img src="https://webstockreview.net/images/pickle-clipart-gangster-4.png" class="logo">
           &nbsp;
           <h1 class="text-left glow d-inline title">Pick 'n Chill</h1>
         </div>
-        <div class="col-md-3"></div>
-        <div class="col-md-5">
-          <form class="form-inline">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+        <!--<div class="col-2"></div>-->
+        <div class="col-4">
+            <button id="login" class="btn btn-outline-success float-right" type="button" data-toggle="modal" data-target="#loginModal">Log In</button>
+            <button id="signup" class="btn btn-outline-success float-right" type="button" data-toggle="modal" data-target="#loginModal">Sign Up</button>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-5">
-          <h5 class="text-left font-italic caption">Stream the movie you want on your platform.</h5>
+        <div class="col-4 row">
+            <div class="col-8">
+                <input id="searchMoviesInput" class="form-control" type="search" placeholder="Search" aria-label="Search">
+            </div>
+            <div class="col-4">
+                <button id="searchMoviesBtn" class="btn btn-outline-success" type="submit">Search</button>
+            </div>
         </div>
-        <div class="col-md-4"></div>
-        <div class="col-md-3">
-          <h5 class="text-right d-inline"><a href="#">Sign Up</a></h5>
-          <p class="d-inline"> | </p>
-          <h5 class="text-right d-inline"><a href="#">Log In</a></h5>
         </div>
       </div>
     </nav>
+  </div>
+</div>
+
+<div id="userSearchDiv">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="text-left">Your Search</h4>
+          <div id="yourSearch" class="mb-5"></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -50,7 +57,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h5 class="text-left">This week's suggested movies</h5>
+        <h4 class="text-left">This week's suggested movies</h4>
           <div class="main-gallery gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
             <div class="gallery-cell"><img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217" class="movieImg"></div>
             <div class="gallery-cell"><img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fewedit.files.wordpress.com%2F2016%2F08%2Fstranger-things_0.jpg&w=400&c=sc&poi=face&q=85" class="movieImg"></div>
@@ -62,11 +69,11 @@
   </div>
 </div>
 
-<div id="movieGenres" class="mb-5">
+<div id="movieGenres" class="mb-1">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h5 class="text-left">Explore by genre</h5>
+        <h4 class="text-left">Explore by genre</h4>
           <div class="card-deck">
             <div class="card">
                   <div class="card-body">
@@ -88,7 +95,7 @@
             </div>
             <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title">Suspense</h5>
+                    <h5 class="card-title">Thriller</h5>
                     <p class="card-text">You'll be on the edge of your seat wondering what's next.</p>
                   </div>
             </div>
@@ -104,11 +111,52 @@
   </div>
 </div>
 
+<div id="movieGenres" class="mb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+            <div class="card-deck">
+              <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Action</h5>
+                      <p class="card-text">Insert action movie info here.</p>
+                    </div>
+              </div>
+              <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Mystery</h5>
+                      <p class="card-text">Insert mystery movie info here.</p>
+                    </div>
+              </div>
+              <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Fantasy</h5>
+                      <p class="card-text">Insert fantasy movie info here.</p>
+                    </div>
+              </div>
+              <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Sci-Fi</h5>
+                      <p class="card-text">Insert sci-fi movie info here.</p>
+                    </div>
+              </div>
+              <div class="card" class="genre">
+                    <div class="card-body">
+                      <h5 class="card-title">Children's</h5>
+                      <p class="card-text">Insert children's movie info here.</p>
+                    </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <div id="userWatchList" class="mb-5">
     <div class="container">
       <div class="row">
         <div class="col-md-5">
-          <h5>Your Watchlist</h5>
+          <h4>Your Watchlist</h4>
           <div class="main-gallery gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
               <div class="gallery-cell"><img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217" class="movieImg"></div>
               <div class="gallery-cell"><img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fewedit.files.wordpress.com%2F2016%2F08%2Fstranger-things_0.jpg&w=400&c=sc&poi=face&q=85" class="movieImg"></div>
@@ -119,7 +167,7 @@
         <div id="movieReviews">
             <div class="container">
               <div class="col-md-7">
-                <h5 class="text-left">Movie Reviews</h5>
+                <h4 class="text-left">Movie Reviews</h4>
               </div>     
             </div>
             <div class="container userPost">
@@ -152,7 +200,7 @@
 </div>
 
 <div id="footer">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
         <p class="text-center mb-0">Created by The Stream Team</p>
@@ -161,9 +209,51 @@
     </div>
   </div>
 </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Log In or Sign Up</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+      <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+         </div>
+        <input name="" class="form-control" placeholder="Email or login" type="email">
+      </div> 
+      </div>
+      <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+         </div>
+          <input class="form-control" placeholder="******" type="password">
+      </div> 
+      </div> 
+      <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-block"> Login  </button>
+      <button type="submit" href="" class="btn btn-primary btn-block"> Sign Up  </button>
+      </div> 
+      <p class="text-center"><a href="#" class="btn">Forgot password?</a></p>
+      </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="/public/js/index.js"></script>
+<script src="/public/js/home.js"></script>
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 </body>
 

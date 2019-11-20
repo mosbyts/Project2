@@ -1,6 +1,7 @@
 /* Header CSS Start */
 .logo{
   height: 35px;
+  margin-bottom: 5px;
   width: 35px;
 }
 
@@ -25,15 +26,16 @@
     text-shadow: 0 0 20px #fff, 0 0 30px #CAF5CA, 0 0 40px #CAF5CA, 0 0 50px #CAF5CA, 0 0 60px #CAF5CA, 0 0 70px #CAF5CA, 0 0 80px #CAF5CA;
   }
 }
-
-.caption{
-  color: #DEEDDE;
-}
 /* Header CSS End */
 
 body{
   background-color: #CAF5CA;
   font-family: 'Calistoga', cursive;
+}
+
+.searchedMovieImg{
+  height: 200px;
+  width: auto;
 }
 
  /* Carousel CSS Start */
