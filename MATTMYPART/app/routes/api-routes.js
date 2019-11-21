@@ -4,39 +4,39 @@
 
 // Dependencies
 // =============================================================
-var Chirp = require("../models/chirp.js");
+var Watch = require("../models/watch.js");
 
 
 // Routes
 // =============================================================
 module.exports = function(app) {
 
-  // Get all chirps
+  // Get all watchs
   app.get("/api/all", function(req, res) {
 
-    // Finding all Chirps, and then returning them to the user as JSON.
+    // Finding all watchs, and then returning them to the user as JSON.
     // Sequelize queries are asynchronous, which helps with perceived speed.
     // If we want something to be guaranteed to happen after the query, we'll use
     // the .then function
-    Chirp.findAll({}).then(function(results) {
+    Watch.findAll({}).then(function(results) {
       // results are available to us inside the .then
       res.json(results);
     });
 
   });
 
-  // Add a chirp
+  // Add a watch
   app.post("/api/new", function(req, res) {
 
-    console.log("Chirp Data:");
+    console.log("Watch Data:");
     console.log(req.body);
 
-    Chirp.create({
-      author: req.body.author,
+    Watch.create({
+      title: req.body.title,
       body: req.body.body,
       created_at: req.body.created_at
     }).then(function(results) {
-      // `results` here would be the newly created chirp
+      // `results` here would be the newly created Watch
       res.end();
     });
 

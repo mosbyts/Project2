@@ -6,15 +6,15 @@ var Sequelize = require("sequelize");
 // sequelize (lowercase) references our connection to the DB.
 var sequelize = require("../config/connection.js");
 
-// Creates a "Chirp" model that matches up with DB
-var Chirp = sequelize.define("chirp", {
-  author: Sequelize.STRING,
+// Creates a "Watch" model that matches up with DB
+var Watch = sequelize.define("watch", {
+  title: Sequelize.STRING,
   body: Sequelize.STRING,
   created_at: Sequelize.DATE
 });
 
 // Syncs with DB
-Chirp.sync();
+Watch.sync();
 
-// Makes the Chirp Model available for other files (will also create a table)
-module.exports = Chirp;
+// Makes the Watch Model available for other files (will also create a table)
+module.exports = Watch;
