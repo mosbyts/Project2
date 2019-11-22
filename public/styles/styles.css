@@ -29,7 +29,6 @@
 /* Header CSS End */
 
 body{
-  background-color: #CAF5CA;
   font-family: 'Calistoga', cursive;
 }
 
@@ -46,6 +45,9 @@ body{
   
   .gallery {
     background: #88CC88;
+    -webkit-box-shadow: 6px 7px 10px 5px #8CC68C;
+    -moz-box-shadow: 6px 7px 10px 5px #8CC68C;
+    box-shadow: 6px 7px 10px 5px #8CC68C;
   }
   
   .gallery-cell {
@@ -69,6 +71,12 @@ body{
 .userPost{
   background-color: #CAF5CA;
   width: 95%;
+}
+
+.movieGenreCard{
+  -webkit-box-shadow: 6px 7px 10px 5px #8CC68C;
+  -moz-box-shadow: 6px 7px 10px 5px #8CC68C;
+  box-shadow: 6px 7px 10px 5px #8CC68C;
 }
 
 #footer{

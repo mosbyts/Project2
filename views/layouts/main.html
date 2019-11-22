@@ -23,7 +23,6 @@
           &nbsp;
           <h1 class="text-left glow d-inline title">Pick 'n Chill</h1>
         </div>
-        <!--<div class="col-2"></div>-->
         <div class="col-4 pr-1">
             <button id="login" class="btn btn-outline-success float-right" type="button" data-toggle="modal" data-target="#loginModal">Log In</button>
             <button id="signup" class="btn btn-outline-success float-right" type="button" data-toggle="modal" data-target="#loginModal">Sign Up</button>
@@ -33,7 +32,7 @@
                 <input id="searchMoviesInput" class="form-control" type="search" placeholder="Search" aria-label="Search">
             </div>
             <div class="col-4 pl-1">
-                <button id="searchMoviesBtn" class="btn btn-outline-success" type="submit">Search</button>
+                <button id="searchMoviesBtn" class="btn btn-outline-success" type="submit" data-toggle="collapse" data-target="#yourSearch">Search</button>
             </div>
         </div>
         </div>
@@ -48,6 +47,7 @@
       <div class="col-md-12">
         <h4 class="text-left">Your Search</h4>
           <div id="yourSearch" class="mb-5"></div>
+        <h5 class="text-left" id="availableOn">Available on: </h5>
       </div>
     </div>
   </div>
@@ -75,31 +75,31 @@
       <div class="col-md-12">
         <h4 class="text-left">Explore by genre</h4>
           <div class="card-deck">
-            <div class="card">
+            <div class="card movieGenreCard">
                   <div class="card-body">
                     <h5 class="card-title">Comedy</h5>
                     <p class="card-text">Comedians, feel good vibes and life's best medicine: laughter.</p>
                   </div>
             </div>
-            <div class="card">
+            <div class="card movieGenreCard">
                   <div class="card-body">
                     <h5 class="card-title">Romance</h5>
                     <p class="card-text">Love stories that would even make the Grinch happy.</p>
                   </div>
             </div>
-            <div class="card">
+            <div class="card movieGenreCard">
                   <div class="card-body">
                     <h5 class="card-title">Horror</h5>
                     <p class="card-text">WATCH OUT! These movies will have you scared to leave your home.</p>
                   </div>
             </div>
-            <div class="card">
+            <div class="card movieGenreCard">
                   <div class="card-body">
                     <h5 class="card-title">Thriller</h5>
                     <p class="card-text">You'll be on the edge of your seat wondering what's next.</p>
                   </div>
             </div>
-            <div class="card" class="genre">
+            <div class="card movieGenreCard">
                   <div class="card-body">
                     <h5 class="card-title">Documentaries</h5>
                     <p class="card-text">The truth about life's mysteries lies here.</p>
@@ -116,31 +116,31 @@
       <div class="row">
         <div class="col-md-12">
             <div class="card-deck">
-              <div class="card">
+              <div class="card movieGenreCard">
                     <div class="card-body">
                       <h5 class="card-title">Action</h5>
                       <p class="card-text">Insert action movie info here.</p>
                     </div>
               </div>
-              <div class="card">
+              <div class="card movieGenreCard">
                     <div class="card-body">
                       <h5 class="card-title">Mystery</h5>
                       <p class="card-text">Insert mystery movie info here.</p>
                     </div>
               </div>
-              <div class="card">
+              <div class="card movieGenreCard">
                     <div class="card-body">
                       <h5 class="card-title">Fantasy</h5>
                       <p class="card-text">Insert fantasy movie info here.</p>
                     </div>
               </div>
-              <div class="card">
+              <div class="card movieGenreCard">
                     <div class="card-body">
                       <h5 class="card-title">Sci-Fi</h5>
                       <p class="card-text">Insert sci-fi movie info here.</p>
                     </div>
               </div>
-              <div class="card" class="genre">
+              <div class="card movieGenreCard">
                     <div class="card-body">
                       <h5 class="card-title">Children's</h5>
                       <p class="card-text">Insert children's movie info here.</p>

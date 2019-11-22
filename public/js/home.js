@@ -57,8 +57,8 @@ function getMovieStreamDetails(movieTitle){
         }
         divholder.append(titleH5);
         divholder.append(moviePoster);
-        divholder.append(streamingH5);
         divholder.appendTo("#yourSearch");
+        $("#availableOn").append(streamingH5);
     });
 };
 
