@@ -32,7 +32,7 @@
                 <input id="searchMoviesInput" class="form-control" type="search" placeholder="Search" aria-label="Search">
             </div>
             <div class="col-4 pl-1">
-                <button id="searchMoviesBtn" class="btn btn-outline-success" type="submit" data-toggle="collapse" data-target="#yourSearch">Search</button>
+                <button id="searchMoviesBtn" class="btn btn-outline-success" type="submit">Search</button>
             </div>
         </div>
         </div>
@@ -44,11 +44,15 @@
 <div id="userSearchDiv">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        <h4 class="text-left">Your Search</h4>
-          <div id="yourSearch" class="mb-5"></div>
-        <h5 class="text-left" id="availableOn">Available on: </h5>
+      <div class="col-3"></div>
+      <div class="col-6">
+        <h4 class="text-center">Your Search</h4>
+          <h5 class="text-left">Movie Title: </h5>
+          <div id="yourSearch" class="mb-2"></div>
+          <h5 class="text-left">Available on: </h5>
+          <div id="availableOn"></div>
       </div>
+      <div class="col-3"></div>
     </div>
   </div>
 </div>
@@ -69,83 +73,131 @@
   </div>
 </div>
 
-<div id="movieGenres" class="mb-1">
+<div id="movieGenres" class="mb-3">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <h4 class="text-left">Explore by genre</h4>
           <div class="card-deck">
-            <div class="card movieGenreCard">
-                  <div class="card-body">
-                    <h5 class="card-title">Comedy</h5>
-                    <p class="card-text">Comedians, feel good vibes and life's best medicine: laughter.</p>
+              <div class="flip-card mr-sm-2 ml-sm-2">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <h5 class="my-lg-5">Action</h5>
+                    </div>
+                    <div class="flip-card-back">
+                      <p class="my-lg-5">EXPLOSIONS HERE!</p>
+                    </div>
                   </div>
-            </div>
-            <div class="card movieGenreCard">
-                  <div class="card-body">
-                    <h5 class="card-title">Romance</h5>
-                    <p class="card-text">Love stories that would even make the Grinch happy.</p>
+              </div>
+
+                <div class="flip-card mr-sm-2 ml-sm-2">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <h5 class="my-lg-5">Children's</h5>
+                      </div>
+                      <div class="flip-card-back">
+                        <p class="my-lg-5">Because everybody loves to relive some old memories</p>
+                      </div>
+                    </div>
+                </div>
+
+                  <div class="flip-card mr-sm-2 ml-sm-2">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <h5 class="my-lg-5">Comedy</h5>
+                        </div>
+                        <div class="flip-card-back">
+                          <p class="my-lg-5">Comedians, feel good vibes and life's best medicine: laughter.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                  <div class="flip-card mr-sm-2 ml-sm-2">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <h5 class="my-lg-5">Documentaries</h5>
+                      </div>
+                      <div class="flip-card-back">
+                        <p class="my-lg-5">The truth about life's mysteries lies here.</p>
+                      </div>
+                    </div>
                   </div>
-            </div>
-            <div class="card movieGenreCard">
-                  <div class="card-body">
-                    <h5 class="card-title">Horror</h5>
-                    <p class="card-text">WATCH OUT! These movies will have you scared to leave your home.</p>
+
+                  <div class="flip-card mr-sm-2 ml-sm-2">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <h5 class="my-lg-5">Fantasy</h5>
+                      </div>
+                      <div class="flip-card-back">
+                        <p class="my-lg-5">Why dream it when you can see it?</p>
+                      </div>
+                    </div>
                   </div>
-            </div>
-            <div class="card movieGenreCard">
-                  <div class="card-body">
-                    <h5 class="card-title">Thriller</h5>
-                    <p class="card-text">You'll be on the edge of your seat wondering what's next.</p>
-                  </div>
-            </div>
-            <div class="card movieGenreCard">
-                  <div class="card-body">
-                    <h5 class="card-title">Documentaries</h5>
-                    <p class="card-text">The truth about life's mysteries lies here.</p>
-                  </div>
-            </div>
           </div>
       </div>
     </div>
   </div>
 </div>
 
-<div id="movieGenres" class="mb-5">
+<div id="movieGenres" class="mb-4">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
             <div class="card-deck">
-              <div class="card movieGenreCard">
-                    <div class="card-body">
-                      <h5 class="card-title">Action</h5>
-                      <p class="card-text">Insert action movie info here.</p>
+                <div class="flip-card mr-sm-2 ml-sm-2">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <h5 class="my-lg-5">Horror</h5>
+                      </div>
+                      <div class="flip-card-back">
+                        <p class="my-lg-5">WATCH OUT! These movies will have you scared to leave your seat.</p>
+                      </div>
                     </div>
-              </div>
-              <div class="card movieGenreCard">
-                    <div class="card-body">
-                      <h5 class="card-title">Mystery</h5>
-                      <p class="card-text">Insert mystery movie info here.</p>
+                </div>
+  
+                  <div class="flip-card mr-sm-2 ml-sm-2">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <h5 class="my-lg-5">Mystery</h5>
+                        </div>
+                        <div class="flip-card-back">
+                          <p class="my-lg-5">Shh...it's a mystery.</p>
+                        </div>
+                      </div>
+                  </div>
+  
+                    <div class="flip-card mr-sm-2 ml-sm-2">
+                        <div class="flip-card-inner">
+                          <div class="flip-card-front">
+                            <h5 class="my-lg-5">Romance</h5>
+                          </div>
+                          <div class="flip-card-back">
+                            <p class="my-lg-5">Love stories that would even make the Grinch happy.</p>
+                          </div>
+                        </div>
+                      </div>
+  
+                    <div class="flip-card mr-sm-2 ml-sm-2">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <h5 class="my-lg-5">Sci-fi</h5>
+                        </div>
+                        <div class="flip-card-back">
+                          <p class="my-lg-5">There is no future without technology, these movies will prove it!</p>
+                        </div>
+                      </div>
                     </div>
-              </div>
-              <div class="card movieGenreCard">
-                    <div class="card-body">
-                      <h5 class="card-title">Fantasy</h5>
-                      <p class="card-text">Insert fantasy movie info here.</p>
+  
+                    <div class="flip-card mr-sm-2 ml-sm-2">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <h5 class="my-lg-5">Thriller</h5>
+                        </div>
+                        <div class="flip-card-back">
+                          <p class="my-lg-5">You'll be on the edge of your seat wondering what's next.</p>
+                        </div>
+                      </div>
                     </div>
-              </div>
-              <div class="card movieGenreCard">
-                    <div class="card-body">
-                      <h5 class="card-title">Sci-Fi</h5>
-                      <p class="card-text">Insert sci-fi movie info here.</p>
-                    </div>
-              </div>
-              <div class="card movieGenreCard">
-                    <div class="card-body">
-                      <h5 class="card-title">Children's</h5>
-                      <p class="card-text">Insert children's movie info here.</p>
-                    </div>
-              </div>
             </div>
         </div>
       </div>
@@ -171,17 +223,17 @@
               </div>     
             </div>
             <div class="container userPost">
-              <p>Susie</p>
+              <h5>Susie</h5>
               <p>"Best movie ever!"</p>
             </div>
             <hr></hr>
             <div class="container userPost">
-                <p>Lauren</p>
+                <h5>Lauren</h5>
                 <p>"Don't even waste your time. I literally lost so many minutes that I'll never get back!!"</p>
             </div>
             <hr></hr>
             <div class="container userPost">
-                <p>Daniel</p>
+                <h5>Daniel</h5>
                 <p>"Woooow"</p>
             </div>
           </div>

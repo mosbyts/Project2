@@ -12,13 +12,16 @@ $(document).ready(function(){
     getPopularMovies();
     $("#userSearchDiv").hide();
 });
+
 $("#searchMoviesBtn").on("click", function(event){
     event.preventDefault();
     var movieTitle = $("#searchMoviesInput").val();
     getMovieStreamDetails(movieTitle);
     $("#userSearchDiv").show();
-    //(response.results[0].name).appendTo("#userSearchDiv")
+    $("#yourSearch").empty();
+    $("#availableOn").empty();
 });
+
 //functions
 function getMovieStreamDetails(movieTitle){
     var settings = {
@@ -43,22 +46,22 @@ function getMovieStreamDetails(movieTitle){
         console.log("Where is it streaming: " + streamingLocations);     
         
         let divholder = $("<div>", {id: "result1"});
-        let moviePoster = $("<img>", {src: response.results[0].picture, class: "searchedMovieImg"});
-        let titleH5 = $("<h5>");
-        titleH5.append("Movie Title: " + response.results[0].name);
-        let streamingH5 = $("<h5>");
+        let moviePoster = $("<img>", {src: response.results[0].picture, class: "searchedMovieImg text-center"});
+        let titleP = $("<p>");
+        titleP.append(response.results[0].name);
+        let streamingP = $("<p>");
         for (let i = 0; i < streamingLocations.length; i++){
             if (i >= 1){
-                streamingH5.append(", ");
-                streamingH5.append(streamingLocations[i]);
+                streamingP.append(", ");
+                streamingP.append(streamingLocations[i]);
             } else {
-                streamingH5.append(streamingLocations[i]);
+                streamingP.append(streamingLocations[i]);
             }
         }
-        divholder.append(titleH5);
+        divholder.append(titleP);
         divholder.append(moviePoster);
         divholder.appendTo("#yourSearch");
-        $("#availableOn").append(streamingH5);
+        $("#availableOn").append(streamingP);
     });
 };
 
