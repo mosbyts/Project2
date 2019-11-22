@@ -22,10 +22,10 @@ $("#watch-submit").on("click", function(event) {
       var row = $("<div>");
       row.addClass("watch");
 
-      row.append("<p>You want to watch" + newWatch.title + "</p>");
-      row.append("<p>Comments about Movie: " + newWatch.body + "</p>");
+      row.append("<p>You successfully put  " + newWatch.title + " on watchlist!</p>");
+      row.append("<p>Because: " + newWatch.body + "</p>");
       row.append("<p>Added " + moment(newWatch.created_at).format("h:mma on dddd") + "</p>");
-
+      row.append("<br>");
       $("#watch-area").prepend(row);
 
     });
@@ -46,8 +46,9 @@ $.get("/api/all", function(data) {
       row.addClass("watch");
 
       row.append("<p>Added: " + data[i].title + "</p>");
-      row.append("<p>" + data[i].body + "</p>");
-      row.append("<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
+      row.append("<p>Why: " + data[i].body + "</p>");
+      row.append("<p>At " + moment(data[i].created_at).format("h:mma on MMM Do YYYY") + "</p>");
+      row.append("<br>");
 
       $("#watch-area").prepend(row);
 
