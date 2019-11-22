@@ -109,6 +109,29 @@ function getPopularMovies(){
             popularMoviesObject.push(tempObject);
         }
         console.log(popularMoviesObject);
+        createPopularMovies(popularMoviesObject)
         //put append to html code here
     });
+}
+
+function createPopularMovies(array){
+    //var $carousel = $('.carousel').flickity().flickity('next').flickity( 'select', 4 );
+    $('#suggestedMoviesGallery').flickity({
+        // options
+        cellAlign: 'left',
+        autoPlay: true,
+        contain: true
+    });
+
+    var suggestedMovieHolder = $("#suggestedMoviesGallery");
+    var mainDiv = $("<div>", {class: "main-gallery gallery js-flickity", "data-flickity-options": "{ 'wrapAround': true }"});
+    for (let i = 0; i < array.length; i++){
+        let div = $("<div>", {class: "gallery-cell"});
+        let img = $("<img>", {src: array[i].poster, class: "movieImg", id: array[i].title});
+        div.append(img);
+        //mainDiv.append(div)
+        //suggestedMovieHolder.prepend(div);
+        $('#suggestedMoviesGallery').flickity( 'append', div);
+    }
+    //mainDiv.appendTo(suggestedMovieHolder);
 }
