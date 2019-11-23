@@ -128,6 +128,22 @@ body{
 }
  /* Flip Cards End */
 
+/* Parallax Start */
+#movieGenresCards {
+  /* The image used */
+  background-image: url("/public/img/parallax-bg.jpg");
+
+  /* Set a specific height */
+  height: 500px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Parallax End */
+
 .userPost{
   background-color: #CAF5CA;
   border-radius: 15px;
