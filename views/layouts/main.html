@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
   <link rel="stylesheet" href="/public/styles/styles.css" media="screen" title="no title" charset="utf-8">
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <link rel="stylesheet"href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <title>Pick 'n Chill</title>
@@ -209,45 +210,41 @@
 <div id="userWatchList" class="mb-5">
     <div class="container">
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-6">
           <h4 data-aos="fade-right">Your Watchlist</h4>
-          <div id="watchlistGallery" class="main-gallery gallery js-flickity" data-flickity-options='{ "wrapAround": true }' data-aos="fade-right">
-              <div class="gallery-cell"><img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217" class="movieImg"></div>
-              <div class="gallery-cell"><img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fewedit.files.wordpress.com%2F2016%2F08%2Fstranger-things_0.jpg&w=400&c=sc&poi=face&q=85" class="movieImg"></div>
-              <div class="gallery-cell"><img src="http://www.media1.hw-static.com/media/2015/12/fright-night-columbia-pictures-everett-122315.jpg" class="movieImg"></div>
-              <div class="gallery-cell"><img src="https://img.buzzfeed.com/buzzfeed-static/static/2015-02/20/15/enhanced/webdr04/enhanced-13983-1424463205-1.jpg?crop=625:938;0,0" class="movieImg"></div>
-          </div>
+            <div id="watch-area" data-aos="fade-right"></div>
         </div>
-        <div id="movieReviews">
-            <div class="container">
-              <div class="col-md-7">
-                <h4 class="text-left" data-aos="fade-left" data-aos-duration="1500">Movie Reviews</h4>
-              </div>     
-            </div>
-            <div class="container userPost" data-aos="fade-left" data-aos-duration="1500">
-              <h5>Susie</h5>
-              <p>"Best movie ever!"</p>
-            </div>
-            <hr></hr>
-            <div class="container userPost" data-aos="fade-left" data-aos-duration="1500">
-                <h5>Lauren</h5>
-                <p>"Don't even waste your time. I literally lost so many minutes that I'll never get back!!"</p>
-            </div>
-            <hr></hr>
-            <div class="container userPost" data-aos="fade-left" data-aos-duration="1500">
-                <h5>Daniel</h5>
-                <p>"Woooow"</p>
-            </div>
-          </div>
+        <div class="col-md-6">
+        <div id="buildWatchList">
+          <h4 data-aos="fade-right">Build Your Watchlist</h4>
+          <p class="text-center">Add A Movie</p>
+          <input class="form-control" type="text" id="title" placeholder="Enter New Movie">
+          <br>
+          <p class="cool-font">Describe how you heard of it</p>
+          <textarea class="form-control" rows="3" id="watch-box" placeholder="Enter Description Here!"></textarea>
+          <button id="watch-submit" type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">Submit!</button>
+        </div>
+        </div>
+      </div>
+    </div>
+</div> 
+
+<div id="movieReviews" class="mb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h4>Community Movie Reviews</h4>
+<!--Add userPost class to each review-->
       </div>
     </div>
   </div>
+</div>
 
 <div id="twitterFeed" class="mb-5">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h5 class="text-left">Chatter around the world</h5>
+        <h4 class="text-left">Chatter around the world</h4>
       </div>
     </div>
   </div>
@@ -331,6 +328,7 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init();</script>
 <script src="/public/js/home.js"></script>
+<script type="text/javascript" src="js/watch.js"></script>
 </body>
 
 </html>

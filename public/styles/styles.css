@@ -1,8 +1,9 @@
 /* Header CSS Start */
 .logo{
-  height: 35px;
-  margin-bottom: 5px;
-  width: 35px;
+  height: 45px;
+  margin-bottom: 3px;
+  margin-right: 10px;
+  width: 43px;
 }
 
 #header{
@@ -60,10 +61,10 @@ body{
   }
   
   .gallery {
-    background: #049669;
-    -webkit-box-shadow: 6px 7px 10px 5px #049669;
-    -moz-box-shadow: 6px 7px 10px 5px #049669;
-    box-shadow: 6px 7px 10px 5px #049669;
+    background: #000;
+    -webkit-box-shadow: 6px 7px 10px 5px rgb(46, 44, 44);
+    -moz-box-shadow: 6px 7px 10px 5px rgb(46, 44, 44);
+    box-shadow: 6px 7px 10px 5px rgb(46, 44, 44);
   }
   
   .gallery-cell {
