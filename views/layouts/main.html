@@ -13,6 +13,7 @@
   <title>Pick 'n Chill</title>
 </head>
 
+<!--Header Start-->
 <body>
 <div id="header" class="mb-5">
   <div class="container-fluid">
@@ -40,7 +41,10 @@
     </nav>
   </div>
 </div>
+<!--Header End-->
 
+<!--Home Page Start-->
+<div id="homePage">
 <div id="userSearchDiv">
   <div class="container">
     <div class="row">
@@ -80,7 +84,7 @@
       <div class="col-md-12">
         <h4 class="text-left">Explore by genre</h4>
           <div class="card-deck">
-              <div class="flip-card mr-sm-2 ml-sm-2">
+              <div id="actionCard" class="flip-card mr-sm-2 ml-sm-2">
                   <div class="flip-card-inner">
                     <div class="flip-card-front">
                       <h5 class="my-lg-5">Action</h5>
@@ -91,7 +95,7 @@
                   </div>
               </div>
 
-                <div class="flip-card mr-sm-2 ml-sm-2">
+                <div id="childrensCard" class="flip-card mr-sm-2 ml-sm-2">
                     <div class="flip-card-inner">
                       <div class="flip-card-front">
                         <h5 class="my-lg-5">Children's</h5>
@@ -102,7 +106,7 @@
                     </div>
                 </div>
 
-                  <div class="flip-card mr-sm-2 ml-sm-2">
+                  <div id="comedyCard" class="flip-card mr-sm-2 ml-sm-2">
                       <div class="flip-card-inner">
                         <div class="flip-card-front">
                           <h5 class="my-lg-5">Comedy</h5>
@@ -113,7 +117,7 @@
                       </div>
                     </div>
 
-                  <div class="flip-card mr-sm-2 ml-sm-2">
+                  <div id="documentaryCard" class="flip-card mr-sm-2 ml-sm-2">
                     <div class="flip-card-inner">
                       <div class="flip-card-front">
                         <h5 class="my-lg-5">Documentaries</h5>
@@ -124,7 +128,7 @@
                     </div>
                   </div>
 
-                  <div class="flip-card mr-sm-2 ml-sm-2">
+                  <div id="fantasyCard" class="flip-card mr-sm-2 ml-sm-2">
                     <div class="flip-card-inner">
                       <div class="flip-card-front">
                         <h5 class="my-lg-5">Fantasy</h5>
@@ -145,7 +149,7 @@
       <div class="row">
         <div class="col-md-12">
             <div class="card-deck">
-                <div class="flip-card mr-sm-2 ml-sm-2">
+                <div id="horrorCard" class="flip-card mr-sm-2 ml-sm-2">
                     <div class="flip-card-inner">
                       <div class="flip-card-front">
                         <h5 class="my-lg-5">Horror</h5>
@@ -156,7 +160,7 @@
                     </div>
                 </div>
   
-                  <div class="flip-card mr-sm-2 ml-sm-2">
+                  <div id="mysteryCard" class="flip-card mr-sm-2 ml-sm-2">
                       <div class="flip-card-inner">
                         <div class="flip-card-front">
                           <h5 class="my-lg-5">Mystery</h5>
@@ -167,7 +171,7 @@
                       </div>
                   </div>
   
-                    <div class="flip-card mr-sm-2 ml-sm-2">
+                    <div id="romanceCard" class="flip-card mr-sm-2 ml-sm-2">
                         <div class="flip-card-inner">
                           <div class="flip-card-front">
                             <h5 class="my-lg-5">Romance</h5>
@@ -178,7 +182,7 @@
                         </div>
                       </div>
   
-                    <div class="flip-card mr-sm-2 ml-sm-2">
+                    <div id="sci-fiCard" class="flip-card mr-sm-2 ml-sm-2">
                       <div class="flip-card-inner">
                         <div class="flip-card-front">
                           <h5 class="my-lg-5">Sci-fi</h5>
@@ -189,7 +193,7 @@
                       </div>
                     </div>
   
-                    <div class="flip-card mr-sm-2 ml-sm-2">
+                    <div id="thrillerCard" class="flip-card mr-sm-2 ml-sm-2">
                       <div class="flip-card-inner">
                         <div class="flip-card-front">
                           <h5 class="my-lg-5">Thriller</h5>
@@ -251,7 +255,25 @@
     </div>
   </div>
 </div>
+</div>
+<!--Home Page End-->
 
+<!--Genre Page Start-->
+<div id="genrePage">
+  <div class="container">
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6">
+        <h4 id="movieGenre" class="text-center"></h4>
+          <div id="movieGenreDisplay" class="mb-2"></div>
+      </div>
+      <div class="col-3"></div>
+    </div>
+  </div>
+</div>
+<!--Genre Page End-->
+
+<!--Footer Start-->
 <div id="footer">
   <div class="container-fluid">
     <div class="row">
@@ -262,8 +284,9 @@
     </div>
   </div>
 </div>
-  
-  <!-- Modal -->
+<!--Footer End-->
+
+<!--Modal Start-->
   <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -304,6 +327,7 @@
       </div>
     </div>
   </div>
+<!--Modal End-->
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>

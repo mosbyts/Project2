@@ -11,8 +11,10 @@
 $(document).ready(function(){
     getPopularMovies();
     $("#userSearchDiv").hide();
+    $("#genrePage").hide();
 });
 
+//Search movies by name click function
 $("#searchMoviesBtn").on("click", function(event){
     event.preventDefault();
     var movieTitle = $("#searchMoviesInput").val();
@@ -22,7 +24,6 @@ $("#searchMoviesBtn").on("click", function(event){
     $("#availableOn").empty();
 });
 
-//functions
 function getMovieStreamDetails(movieTitle){
     var settings = {
         "async": true,
@@ -65,6 +66,15 @@ function getMovieStreamDetails(movieTitle){
     });
 };
 
+//Search movies by genre click function
+$("#actionCard").on("click", function(event){
+    event.preventDefault();
+    $("#homePage").hide();
+    $("#genrePage").show();
+    getMovieGenres();
+
+});
+
 function getMovieGenres(){
     let key = "5f7135150c434e2b62be14b37e1617f5";
     let queryString = "https://api.themoviedb.org/3/genre/movie/list?api_key="+key+"&language=en-US";
@@ -72,6 +82,12 @@ function getMovieGenres(){
     $.get(queryString, function(results){
         console.log("*** Genre search using tMDB api***");
         console.log(results);
+        for(var x = 0; x < 19; x++){
+            if()
+
+            $("#movieGenre").append(results.genres[x].name);
+        }
+        
     });
 }
 
