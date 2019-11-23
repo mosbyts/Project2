@@ -18,13 +18,13 @@ $(document).ready(function(){
 $("#searchMoviesBtn").on("click", function(event){
     event.preventDefault();
     var movieTitle = $("#searchMoviesInput").val();
-    getMovieStreamDetails(movieTitle);
+    getMovieStreamDetails(movieTitle,"search");
     $("#userSearchDiv").show();
     $("#yourSearch").empty();
     $("#availableOn").empty();
 });
 
-function getMovieStreamDetails(movieTitle){
+function getMovieStreamDetails(movieTitle, action){
     var settings = {
         "async": true,
         "crossDomain": true,
@@ -35,36 +35,47 @@ function getMovieStreamDetails(movieTitle){
             "x-rapidapi-key": "b3aa10f3e9mshf37294a8e218e44p1da36fjsn46d1b673205b"
         }
     }
-
-    $.ajax(settings).done(function (response) {
-        let streamingLocations = [];
-        for (let i = 0; i < response.results[0].locations.length; i++){
-            streamingLocations.push(response.results[0].locations[i].display_name);
-        }
-        console.log("***Searching UtellyAPI***");
-        console.log(response);
-        console.log("Title: " + response.results[0].name);
-        console.log("Where is it streaming: " + streamingLocations);     
-        
-        let divholder = $("<div>", {id: "result1"});
-        let moviePoster = $("<img>", {src: response.results[0].picture, class: "searchedMovieImg text-center"});
-        let titleP = $("<p>");
-        titleP.append(response.results[0].name);
-        let streamingP = $("<p>");
-        for (let i = 0; i < streamingLocations.length; i++){
-            if (i >= 1){
-                streamingP.append(", ");
-                streamingP.append(streamingLocations[i]);
-            } else {
-                streamingP.append(streamingLocations[i]);
+    if (action === "search"){
+        $.ajax(settings).done(function (response) {
+            let streamingLocations = [];
+            for (let i = 0; i < response.results[0].locations.length; i++){
+                streamingLocations.push(response.results[0].locations[i].display_name);
             }
-        }
-        divholder.append(titleP);
-        divholder.append(moviePoster);
-        divholder.appendTo("#yourSearch");
-        $("#availableOn").append(streamingP);
-    });
-};
+            console.log("***Searching UtellyAPI***");
+            console.log(response);
+            console.log("Title: " + response.results[0].name);
+            console.log("Where is it streaming: " + streamingLocations);     
+            
+            let divholder = $("<div>", {id: "result1"});
+            let moviePoster = $("<img>", {src: response.results[0].picture, class: "searchedMovieImg text-center"});
+            let titleP = $("<p>");
+            titleP.append(response.results[0].name);
+            let streamingP = $("<p>");
+            for (let i = 0; i < streamingLocations.length; i++){
+                if (i >= 1){
+                    streamingP.append(", ");
+                    streamingP.append(streamingLocations[i]);
+                } else {
+                    streamingP.append(streamingLocations[i]);
+                }
+            }
+            divholder.append(titleP);
+            divholder.append(moviePoster);
+            divholder.appendTo("#yourSearch");
+            $("#availableOn").append(streamingP);
+        });
+    } else if (action === 'category') {
+        $.ajax(settings).done(function (response) {
+            let streamingLocations = [];
+            for (let i = 0; i < response.results[0].locations.length; i++){
+                streamingLocations.push(response.results[0].locations[i].display_name);
+            }   
+            return streamingLocations;
+        })
+    } else {
+        //defualt 
+    }
+}
 
 //Search movies by genre click function
 $("#actionCard").on("click", function(event){
@@ -81,19 +92,13 @@ function getMovieGenres(){
     $.get(queryString, function(results){
         console.log("*** Genre search using tMDB api***");
         console.log(results);
-        for(var x = 0; x < results.genres.length; x++){
-            // if(results.genres[x].name == ){
-            //     $("#movieGenre").append(results.genres[x].name);
-            //     $("#movieGenreDisplay").append();
-            // };
-        };
     });
 }
 
 function getMoviesByCategory(){
     let key = "5f7135150c434e2b62be14b37e1617f5";
     let movieGenreArray = [28, 16, 35, 99, 14, 27, 9648, 10749, 878, 53];
-    let moviePosters = [];
+    let movieObjects = [];
     let moviePosterBaseUrl = "http://image.tmdb.org/t/p/w185/";
     // example http://image.tmdb.org/t/p/w185//kvpNZAQow5es1tSY6XW2jAZuPPG.jpg ... it does require the double backspace
     
@@ -103,10 +108,22 @@ function getMoviesByCategory(){
             console.log("*** Movies by Genre search using tMDB api***");
             console.log(results);
             for (let i = 0; i < 10; i++){
-                moviePosters.push(results.results[i].poster_path);
+                var streaming = getMovieStreamDetails(results.results[i].title ,"category");
+                let tempObject = {
+                    title: results.results[i].title,
+                    poster: moviePosterBaseUrl + results.results[i].poster_path,
+                    releaseDate: results.results[i].release_date,
+                    overview: results.results[i].overview,
+                    streamingLocations: streaming,
+                    genreID: results.results[i].genre_ids[0]
+                }
+                movieObjects.push(tempObject);
+                //moviePosters.push(results.results[i].poster_path);
             }
-            console.log("**Movie Posters links**")
-            console.log(moviePosters);
+            console.log("movies for category - "+ movieGenreArray[i]);
+            console.log(movieObjects);
+            //console.log("**Movie Posters links**")
+            //console.log(moviePosters);
         });
     }
 }
