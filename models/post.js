@@ -1,4 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
+  var Post = sequelize.define("Post", {
   var Review = sequelize.define("Review", {
     title: {
       type: DataTypes.STRING,
@@ -19,5 +20,7 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: "Netflix"
     }
   });
+  return Post;
+};
   return Review;
 };
