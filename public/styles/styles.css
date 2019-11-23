@@ -6,13 +6,14 @@
 }
 
 #header{
-  background-color: #88CC88;
+  background-color: #049669;
   margin-bottom: 10px;
 }
 
 .btn{
+  background-color: #FFF;
 	text-shadow:0 1px 0 #666;
-	box-shadow:1px 1px 2px #7DA37D;
+	box-shadow:1px 1px 2px #049669;
 	opacity:0.95
 }
 
@@ -31,7 +32,7 @@
 
 @-webkit-keyframes glow {
   from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #88CC88, 0 0 40px #88CC88, 0 0 50px #88CC88, 0 0 60px #88CC88, 0 0 70px #88CC88;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #049669, 0 0 40px #049669, 0 0 50px #049669, 0 0 60px #049669, 0 0 70px #049669;
   }
   to {
     text-shadow: 0 0 20px #fff, 0 0 30px #CAF5CA, 0 0 40px #CAF5CA, 0 0 50px #CAF5CA, 0 0 60px #CAF5CA, 0 0 70px #CAF5CA, 0 0 80px #CAF5CA;
@@ -59,10 +60,10 @@ body{
   }
   
   .gallery {
-    background: #88CC88;
-    -webkit-box-shadow: 6px 7px 10px 5px #8CC68C;
-    -moz-box-shadow: 6px 7px 10px 5px #8CC68C;
-    box-shadow: 6px 7px 10px 5px #8CC68C;
+    background: #049669;
+    -webkit-box-shadow: 6px 7px 10px 5px #049669;
+    -moz-box-shadow: 6px 7px 10px 5px #049669;
+    box-shadow: 6px 7px 10px 5px #049669;
   }
   
   .gallery-cell {
@@ -82,6 +83,10 @@ body{
     width: 436px;
   }
  /* Carousel CSS End */
+
+.exploreByGenre{
+  color: #FFF;
+}
 
  /* Flip Cards Start */
  .flip-card {
@@ -151,5 +156,5 @@ body{
 }
 
 #footer{
-  background-color: #88CC88;
+  background-color: #049669;
 }
