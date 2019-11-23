@@ -72,7 +72,6 @@ $("#actionCard").on("click", function(event){
     $("#homePage").hide();
     $("#genrePage").show();
     getMovieGenres();
-
 });
 
 function getMovieGenres(){
@@ -82,31 +81,34 @@ function getMovieGenres(){
     $.get(queryString, function(results){
         console.log("*** Genre search using tMDB api***");
         console.log(results);
-        for(var x = 0; x < 19; x++){
-            if()
-
-            $("#movieGenre").append(results.genres[x].name);
-        }
-        
+        for(var x = 0; x < results.genres.length; x++){
+            // if(results.genres[x].name == ){
+            //     $("#movieGenre").append(results.genres[x].name);
+            //     $("#movieGenreDisplay").append();
+            // };
+        };
     });
 }
 
-function getMoviesByCategory(catId){
+function getMoviesByCategory(){
     let key = "5f7135150c434e2b62be14b37e1617f5";
-    let queryString = "https://api.themoviedb.org/3/discover/movie?api_key="+key+"&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres="+catId;
+    let movieGenreArray = [28, 16, 35, 99, 14, 27, 9648, 10749, 878, 53];
     let moviePosters = [];
     let moviePosterBaseUrl = "http://image.tmdb.org/t/p/w185/";
     // example http://image.tmdb.org/t/p/w185//kvpNZAQow5es1tSY6XW2jAZuPPG.jpg ... it does require the double backspace
-
-    $.get(queryString, function(results){
-        console.log("*** Movies by Genre search using tMDB api***");
-        console.log(results);
-        for (let i = 0; i < 10; i++){
-            moviePosters.push(results.results[i].poster_path);
-        }
-        console.log("**Movie Posters links**")
-        console.log(moviePosters);
-    });
+    
+    for (let i = 0; i < movieGenreArray.length; i++){
+        let queryString = "https://api.themoviedb.org/3/discover/movie?api_key="+key+"&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres="+movieGenreArray[i];
+        $.get(queryString, function(results){
+            console.log("*** Movies by Genre search using tMDB api***");
+            console.log(results);
+            for (let i = 0; i < 10; i++){
+                moviePosters.push(results.results[i].poster_path);
+            }
+            console.log("**Movie Posters links**")
+            console.log(moviePosters);
+        });
+    }
 }
 
 function getPopularMovies(){
