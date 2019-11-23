@@ -116,13 +116,13 @@ body{
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-  background-color: #8CC68C;
+  background-color: #FFF;
   color: #000;
 }
 
 /* Style the back side */
 .flip-card-back {
-  background-color: #8CC68C;
+  background-color: #FFF;
   color: #000;
   transform: rotateY(180deg);
 }
