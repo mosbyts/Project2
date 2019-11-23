@@ -1,15 +1,17 @@
 $(document).ready(function() {
-  // blogContainer holds all of our posts
-  var blogContainer = $(".blog-container");
-  var postCategorySelect = $("#category");
-  // Click events for the edit and delete buttons
-  $(document).on("click", "button.delete", handlePostDelete);
-  $(document).on("click", "button.edit", handlePostEdit);
-  postCategorySelect.on("change", handleCategoryChange);
-  var posts;
-
   // This function grabs posts from the database and updates the view
   function getPosts(category) {
+  // reviewContainer holds all of our reviews
+  var reviewContainer = $(".reviews-container");
+  var reviewCategorySelect = $("#category");
+  // Click events for the edit and delete buttons
+  $(document).on("click", "button.delete", handleReviewDelete);
+  $(document).on("click", "button.edit", handleReviewEdit);
+  reviewCategorySelect.on("change", handleCategoryChange);
+  var posts;
+
+  // This function grabs reviews from the database and updates the view
+  function getReviews(category) {
     var categoryString = category || "";
     if (categoryString) {
       categoryString = "/category/" + categoryString;
@@ -21,6 +23,11 @@ $(document).ready(function() {
         displayEmpty();
       }
       else {
+      console.log("Review", data);
+      posts = data;
+      if (!posts || !posts.length) {
+        displayEmpty();
+      } else {
         initializeRows();
       }
     });
@@ -43,6 +50,22 @@ $(document).ready(function() {
   // blogContainer
   function initializeRows() {
     blogContainer.empty();
+  // This function does an API call to delete reviews
+  function deleteReview(id) {
+    $.ajax({
+      method: "DELETE",
+      url: "/api/posts/" + id
+    }).then(function() {
+      getReviews(reviewCategorySelect.val());
+    });
+  }
+
+  // Getting the initial list of reviews
+  getReviews();
+  // InitializeRows handles appending all of our constructed review HTML inside
+  // reviewContainer
+  function initializeRows() {
+    reviewContainer.empty();
     var postsToAdd = [];
     for (var i = 0; i < posts.length; i++) {
       postsToAdd.push(createNewRow(posts[i]));
@@ -51,6 +74,10 @@ $(document).ready(function() {
   }
 
   // This function constructs a post's HTML
+    reviewContainer.append(postsToAdd);
+  }
+
+  // This function constructs a review's HTML
   function createNewRow(post) {
     var newPostCard = $("<div>");
     newPostCard.addClass("card");
@@ -71,6 +98,7 @@ $(document).ready(function() {
       "font-weight": "700",
       "margin-top":
       "-15px"
+      "margin-top": "-15px"
     });
     var newPostCardBody = $("<div>");
     newPostCardBody.addClass("card-body");
@@ -95,6 +123,9 @@ $(document).ready(function() {
   // This function figures out which post we want to delete and then calls
   // deletePost
   function handlePostDelete() {
+  // This function figures out which review we want to delete and then calls
+  // deleteReview
+  function handleReviewDelete() {
     var currentPost = $(this)
       .parent()
       .parent()
@@ -105,6 +136,12 @@ $(document).ready(function() {
   // This function figures out which post we want to edit and takes it to the
   // Appropriate url
   function handlePostEdit() {
+    deleteReview(currentPost.id);
+  }
+
+  // This function figures out which review we want to edit and takes it to the
+  // Appropriate url
+  function handleReviewEdit() {
     var currentPost = $(this)
       .parent()
       .parent()
@@ -128,4 +165,20 @@ $(document).ready(function() {
   }
 
 });
+  // This function displays a message when there are no reviews
+  function displayEmpty() {
+    reviewContainer.empty();
+    var messageH2 = $("<h2>");
+    messageH2.css({ "text-align": "center", "margin-top": "50px" });
+    messageH2.html(
+      "No reviews yet for this category, navigate <a href='/cms'>here</a> in order to create a new review."
+    );
+    reviewContainer.append(messageH2);
+  }
 
+  // This function handles reloading new reviews when the category changes
+  function handleCategoryChange() {
+    var newPostCategory = $(this).val();
+    getReviews(newPostCategory);
+  }
+});
