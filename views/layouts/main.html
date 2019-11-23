@@ -13,6 +13,7 @@
   <title>Pick 'n Chill</title>
 </head>
 
+<!--Header Start-->
 <body>
 <div id="header" class="mb-5">
   <div class="container-fluid">
@@ -23,7 +24,6 @@
           &nbsp;
           <h1 class="text-left glow d-inline title">Pick 'n Chill</h1>
         </div>
-        <!--<div class="col-2"></div>-->
         <div class="col-4 pr-1">
             <button id="login" class="btn btn-outline-success float-right" type="button" data-toggle="modal" data-target="#loginModal">Log In</button>
             <button id="signup" class="btn btn-outline-success float-right" type="button" data-toggle="modal" data-target="#loginModal">Sign Up</button>
@@ -41,14 +41,22 @@
     </nav>
   </div>
 </div>
+<!--Header End-->
 
+<!--Home Page Start-->
+<div id="homePage">
 <div id="userSearchDiv">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        <h4 class="text-left">Your Search</h4>
-          <div id="yourSearch" class="mb-5"></div>
+      <div class="col-3"></div>
+      <div class="col-6">
+        <h4 class="text-center">Your Search</h4>
+          <h5 class="text-left">Movie Title: </h5>
+          <div id="yourSearch" class="mb-2"></div>
+          <h5 class="text-left">Available on: </h5>
+          <div id="availableOn"></div>
       </div>
+      <div class="col-3"></div>
     </div>
   </div>
 </div>
@@ -57,95 +65,144 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h4 class="text-left">This week's suggested movies</h4>
-          <div class="main-gallery gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+        <h4 class="text-left" id="suggestedHolder">This week's suggested movies</h4>
+        <div id="suggestedMoviesGallery"></div>
+          <!-- <div id="suggestedMoviesGallery" class="main-gallery gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
             <div class="gallery-cell"><img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217" class="movieImg"></div>
             <div class="gallery-cell"><img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fewedit.files.wordpress.com%2F2016%2F08%2Fstranger-things_0.jpg&w=400&c=sc&poi=face&q=85" class="movieImg"></div>
             <div class="gallery-cell"><img src="http://www.media1.hw-static.com/media/2015/12/fright-night-columbia-pictures-everett-122315.jpg" class="movieImg"></div>
             <div class="gallery-cell"><img src="https://img.buzzfeed.com/buzzfeed-static/static/2015-02/20/15/enhanced/webdr04/enhanced-13983-1424463205-1.jpg?crop=625:938;0,0" class="movieImg"></div>
-          </div>
+          </div> -->
       </div>
     </div>
   </div>
 </div>
 
-<div id="movieGenres" class="mb-1">
+<div id="movieGenres" class="mb-3">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <h4 class="text-left">Explore by genre</h4>
           <div class="card-deck">
-            <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">Comedy</h5>
-                    <p class="card-text">Comedians, feel good vibes and life's best medicine: laughter.</p>
+              <div id="actionCard" class="flip-card mr-sm-2 ml-sm-2">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <h5 class="my-lg-5">Action</h5>
+                    </div>
+                    <div class="flip-card-back">
+                      <p class="my-lg-5">EXPLOSIONS HERE!</p>
+                    </div>
                   </div>
-            </div>
-            <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">Romance</h5>
-                    <p class="card-text">Love stories that would even make the Grinch happy.</p>
+              </div>
+
+                <div id="animationCard" class="flip-card mr-sm-2 ml-sm-2">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <h5 class="my-lg-5">Animation</h5>
+                      </div>
+                      <div class="flip-card-back">
+                        <p class="my-lg-5">Because everybody loves to relive some old memories</p>
+                      </div>
+                    </div>
+                </div>
+
+                  <div id="comedyCard" class="flip-card mr-sm-2 ml-sm-2">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <h5 class="my-lg-5">Comedy</h5>
+                        </div>
+                        <div class="flip-card-back">
+                          <p class="my-lg-5">Comedians, feel good vibes and life's best medicine: laughter.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                  <div id="documentaryCard" class="flip-card mr-sm-2 ml-sm-2">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <h5 class="my-lg-5">Documentaries</h5>
+                      </div>
+                      <div class="flip-card-back">
+                        <p class="my-lg-5">The truth about life's mysteries lies here.</p>
+                      </div>
+                    </div>
                   </div>
-            </div>
-            <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">Horror</h5>
-                    <p class="card-text">WATCH OUT! These movies will have you scared to leave your home.</p>
+
+                  <div id="fantasyCard" class="flip-card mr-sm-2 ml-sm-2">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <h5 class="my-lg-5">Fantasy</h5>
+                      </div>
+                      <div class="flip-card-back">
+                        <p class="my-lg-5">Why dream it when you can see it?</p>
+                      </div>
+                    </div>
                   </div>
-            </div>
-            <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">Thriller</h5>
-                    <p class="card-text">You'll be on the edge of your seat wondering what's next.</p>
-                  </div>
-            </div>
-            <div class="card" class="genre">
-                  <div class="card-body">
-                    <h5 class="card-title">Documentaries</h5>
-                    <p class="card-text">The truth about life's mysteries lies here.</p>
-                  </div>
-            </div>
           </div>
       </div>
     </div>
   </div>
 </div>
 
-<div id="movieGenres" class="mb-5">
+<div id="movieGenres" class="mb-4">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
             <div class="card-deck">
-              <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Action</h5>
-                      <p class="card-text">Insert action movie info here.</p>
+                <div id="horrorCard" class="flip-card mr-sm-2 ml-sm-2">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <h5 class="my-lg-5">Horror</h5>
+                      </div>
+                      <div class="flip-card-back">
+                        <p class="my-lg-5">WATCH OUT! These movies will have you scared to leave your seat.</p>
+                      </div>
                     </div>
-              </div>
-              <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Mystery</h5>
-                      <p class="card-text">Insert mystery movie info here.</p>
+                </div>
+  
+                  <div id="mysteryCard" class="flip-card mr-sm-2 ml-sm-2">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <h5 class="my-lg-5">Mystery</h5>
+                        </div>
+                        <div class="flip-card-back">
+                          <p class="my-lg-5">Shh...it's a mystery.</p>
+                        </div>
+                      </div>
+                  </div>
+  
+                    <div id="romanceCard" class="flip-card mr-sm-2 ml-sm-2">
+                        <div class="flip-card-inner">
+                          <div class="flip-card-front">
+                            <h5 class="my-lg-5">Romance</h5>
+                          </div>
+                          <div class="flip-card-back">
+                            <p class="my-lg-5">Love stories that would even make the Grinch happy.</p>
+                          </div>
+                        </div>
+                      </div>
+  
+                    <div id="sci-fiCard" class="flip-card mr-sm-2 ml-sm-2">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <h5 class="my-lg-5">Sci-fi</h5>
+                        </div>
+                        <div class="flip-card-back">
+                          <p class="my-lg-5">There is no future without technology, these movies will prove it!</p>
+                        </div>
+                      </div>
                     </div>
-              </div>
-              <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Fantasy</h5>
-                      <p class="card-text">Insert fantasy movie info here.</p>
+  
+                    <div id="thrillerCard" class="flip-card mr-sm-2 ml-sm-2">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <h5 class="my-lg-5">Thriller</h5>
+                        </div>
+                        <div class="flip-card-back">
+                          <p class="my-lg-5">You'll be on the edge of your seat wondering what's next.</p>
+                        </div>
+                      </div>
                     </div>
-              </div>
-              <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Sci-Fi</h5>
-                      <p class="card-text">Insert sci-fi movie info here.</p>
-                    </div>
-              </div>
-              <div class="card" class="genre">
-                    <div class="card-body">
-                      <h5 class="card-title">Children's</h5>
-                      <p class="card-text">Insert children's movie info here.</p>
-                    </div>
-              </div>
             </div>
         </div>
       </div>
@@ -157,7 +214,7 @@
       <div class="row">
         <div class="col-md-5">
           <h4>Your Watchlist</h4>
-          <div class="main-gallery gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+          <div id="watchlistGallery" class="main-gallery gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
               <div class="gallery-cell"><img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217" class="movieImg"></div>
               <div class="gallery-cell"><img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fewedit.files.wordpress.com%2F2016%2F08%2Fstranger-things_0.jpg&w=400&c=sc&poi=face&q=85" class="movieImg"></div>
               <div class="gallery-cell"><img src="http://www.media1.hw-static.com/media/2015/12/fright-night-columbia-pictures-everett-122315.jpg" class="movieImg"></div>
@@ -171,17 +228,17 @@
               </div>     
             </div>
             <div class="container userPost">
-              <p>Susie</p>
+              <h5>Susie</h5>
               <p>"Best movie ever!"</p>
             </div>
             <hr></hr>
             <div class="container userPost">
-                <p>Lauren</p>
+                <h5>Lauren</h5>
                 <p>"Don't even waste your time. I literally lost so many minutes that I'll never get back!!"</p>
             </div>
             <hr></hr>
             <div class="container userPost">
-                <p>Daniel</p>
+                <h5>Daniel</h5>
                 <p>"Woooow"</p>
             </div>
           </div>
@@ -198,7 +255,25 @@
     </div>
   </div>
 </div>
+</div>
+<!--Home Page End-->
 
+<!--Genre Page Start-->
+<div id="genrePage">
+  <div class="container">
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6">
+        <h4 id="movieGenre" class="text-center"></h4>
+          <div id="movieGenreDisplay" class="mb-2"></div>
+      </div>
+      <div class="col-3"></div>
+    </div>
+  </div>
+</div>
+<!--Genre Page End-->
+
+<!--Footer Start-->
 <div id="footer">
   <div class="container-fluid">
     <div class="row">
@@ -209,8 +284,9 @@
     </div>
   </div>
 </div>
-  
-  <!-- Modal -->
+<!--Footer End-->
+
+<!--Modal Start-->
   <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -251,10 +327,12 @@
       </div>
     </div>
   </div>
+<!--Modal End-->
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="js/home.js"></script>
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script src="/public/js/home.js"></script>
 </body>
 
 </html>

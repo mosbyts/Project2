@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Watchlist</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Moment.js -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  </head>
+  <body>
+
+    <div class="jumbotron">
+      <h1 class="text-center">Build your Watchlist!</h1>
+    </div>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+          <p class="cool-font">Add a movie</p>
+          <input class="form-control" type="text" id="title" placeholder="Enter New Movie">
+          <br>
+          <p class="cool-font">Describe how you heard of it</p>
+          <textarea class="form-control" rows="3" id="watch-box" placeholder="Enter Description Here!"></textarea>
+          <button id="watch-submit" class="btn btn-lg pull-right">Submit!</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+          <h2>Watchlist</h2>
+          <hr>
+          <div id="watch-area"></div>
+        </div>
+      </div>
+
+    </div>
+
+  <script type="text/javascript" src="js/watch.js"></script>
+  </body>
+</html>
