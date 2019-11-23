@@ -4,14 +4,12 @@ $(document).ready(function () {
   var postId;
   // Sets a flag for whether or not we're updating a post to be false initially
   var updating = false;
-
   // If we have this section in our url, we pull out the post id from the url
   // In localhost:8080/cms?post_id=1, postId is 1
   if (url.indexOf("?post_id=") !== -1) {
     postId = url.split("=")[1];
     getPostData(postId);
   }
-
   // Getting jQuery references to the post body, title, form, and category select
   var bodyInput = $("#body");
   var titleInput = $("#title");
@@ -19,6 +17,7 @@ $(document).ready(function () {
   var postCategorySelect = $("#category");
   // Giving the postCategorySelect a default value
   postCategorySelect.val("Netflix");
+  postCategorySelect.val("Personal");
   // Adding an event listener for when the form is submitted
   $(cmsForm).on("submit", function handleFormSubmit(event) {
     event.preventDefault();
@@ -31,10 +30,7 @@ $(document).ready(function () {
       title: titleInput.val().trim(),
       body: bodyInput.val().trim(),
       category: postCategorySelect.val()
-    };
-
     console.log(newPost);
-
     // If we're updating a post run updatePost to update a post
     // Otherwise run submitPost to create a whole new post
     if (updating) {
@@ -44,7 +40,6 @@ $(document).ready(function () {
       submitPost(newPost);
     }
   });
-
   // Submits a new post and brings user to blog page upon completion
   function submitPost(Post) {
     $.post("/api/posts/", Post, function () {
@@ -56,6 +51,15 @@ $(document).ready(function () {
   function getPostData() {
     $.get("/api/posts/", function (data) {
       console.log(data);
+  // Submits a new post and brings user to blog page upon completion
+  function submitPost(Post) {
+    $.post("/api/posts/", Post, function() {
+      window.location.href = "/blog";
+    });
+  }
+  // Gets post data for a post if we're editing
+  function getPostData(id) {
+    $.get("/api/posts/" + id, function(data) {
       if (data) {
         // If this post exists, prefill our cms forms with its data
         titleInput.val(data.title);
@@ -67,7 +71,6 @@ $(document).ready(function () {
       }
     });
   }
-
   // Update a given post, bring user to the blog page when done
   function updatePost(post) {
     $.ajax({
@@ -78,5 +81,16 @@ $(document).ready(function () {
       .then(function () {
         window.location.href = "/index";
       });
+  }
+});
+  // Update a given post, bring user to the blog page when done
+  function updatePost(post) {
+    $.ajax({
+      method: "PUT",
+      url: "/api/posts",
+      data: post
+    }).then(function() {
+      window.location.href = "/blog";
+    });
   }
 });

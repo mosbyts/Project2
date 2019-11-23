@@ -3,6 +3,7 @@
     "username": "root",
     "password": "password",
     "database": "reviews",
+    "database": "projectTwo",
     "host": "127.0.0.1",
     "port": 3306,
     "dialect": "mysql"
