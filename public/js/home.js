@@ -16,7 +16,12 @@ $(document).ready(function(){
     $(".flip-card").on("click", function(){
         var catID = $(this).attr("value");
         getMoviesByCategory(catID);
-    })
+    });
+
+    $(document).on("click", ".something" , function(){
+        var title = $(this).attr("id");
+        getMovieStreamDetails(title);
+    });
 });
 
 //Search movies by name click function
@@ -104,8 +109,8 @@ function getMovieStreamDetails(movieTitle, action, movieData){
              
             // console.log("tempObject");
             console.log(tempObject);
-            let divholder = $("<div>", {id: "result1"});
-            let moviePoster = $("<img>", {src: tempObject.poster, class: "searchedMovieImg text-center"});
+            let divholder = $("<div>");
+            let moviePoster = $("<img>", {src: tempObject.poster, class: "searchedMovieImg text-center something", id: tempObject.title});
             let titleP = $("<p>");
             titleP.append(tempObject.title);
             let streamingP = $("<p>");
@@ -130,7 +135,29 @@ function getMovieStreamDetails(movieTitle, action, movieData){
             //return tempObject;
         })
     } else {
-        //defualt 
+        $.ajax(settings).done(function (response) {
+            let streamingLocations = [];
+            console.log(response);
+            
+            if (response.results[0]){
+                for (let i = 0; i < response.results[0].locations.length; i++){
+                    streamingLocations.push(response.results[0].locations[i].display_name);
+                }
+                console.log("Title: " + response.term);
+                console.log("Where is it streaming: " + streamingLocations);
+                $("#movieModalLabel").text(response.term);
+                $("#movieModalBody").text("Streaming location: "+ streamingLocations);
+                $('#movieModal').modal('show');
+            } else {
+                console.log("Title: " + response.term);
+                console.log("Where is it streaming: Currently Not Streaming");
+                $("#movieModalLabel").text(response.term);
+                $("#movieModalBody").text("Currently Not Streaming");
+                $('#movieModal').modal('show');
+            }
+            //console.log("***Searching UtellyAPI***");
+                 
+        });
     }
 }
 
@@ -226,7 +253,7 @@ function createPopularMovies(array){
     var mainDiv = $("<div>", {class: "main-gallery gallery js-flickity", "data-flickity-options": "{ 'wrapAround': true }"});
     for (let i = 0; i < array.length; i++){
         let div = $("<div>", {class: "gallery-cell"});
-        let img = $("<img>", {src: array[i].poster, class: "movieImg", id: array[i].title});
+        let img = $("<img>", {src: array[i].poster, class: "movieImg something", id: array[i].title});
         div.append(img);
         //mainDiv.append(div)
         //suggestedMovieHolder.prepend(div);
