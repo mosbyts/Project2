@@ -81,7 +81,8 @@
       <div class="col-md-12">
         <h4 class="text-left exploreByGenre" data-aos="fade-right" data-aos-duration="1500">Explore by genre</h4>
           <div class="card-deck">
-              <div id="actionCard" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-left">
+
+              <div id="actionCard" value="28" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-left">
                   <div class="flip-card-inner">
                     <div class="flip-card-front">
                       <h5 class="my-lg-5">Action</h5>
@@ -92,7 +93,7 @@
                   </div>
               </div>
 
-                <div id="animationCard" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-right">
+                <div id="animationCard" value="16" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-right">
                     <div class="flip-card-inner">
                       <div class="flip-card-front">
                         <h5 class="my-lg-5">Animation</h5>
@@ -103,7 +104,7 @@
                     </div>
                 </div>
 
-                  <div id="comedyCard" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-left">
+                  <div id="comedyCard" value="35" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-left">
                       <div class="flip-card-inner">
                         <div class="flip-card-front">
                           <h5 class="my-lg-5">Comedy</h5>
@@ -114,7 +115,7 @@
                       </div>
                     </div>
 
-                  <div id="documentaryCard" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-right">
+                  <div id="documentaryCard" value="99" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-right">
                     <div class="flip-card-inner">
                       <div class="flip-card-front">
                         <h5 class="my-lg-5">Documentaries</h5>
@@ -125,7 +126,7 @@
                     </div>
                   </div>
 
-                  <div id="fantasyCard" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-left">
+                  <div id="fantasyCard" value="14" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-left">
                     <div class="flip-card-inner">
                       <div class="flip-card-front">
                         <h5 class="my-lg-5">Fantasy</h5>
@@ -146,7 +147,8 @@
       <div class="row">
         <div class="col-md-12">
             <div class="card-deck">
-                <div id="horrorCard" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-left">
+
+                <div id="horrorCard" value="27" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-left">
                     <div class="flip-card-inner">
                       <div class="flip-card-front">
                         <h5 class="my-lg-5">Horror</h5>
@@ -157,7 +159,7 @@
                     </div>
                 </div>
   
-                  <div id="mysteryCard" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-right">
+                  <div id="mysteryCard" value="9648" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-right">
                       <div class="flip-card-inner">
                         <div class="flip-card-front">
                           <h5 class="my-lg-5">Mystery</h5>
@@ -168,7 +170,7 @@
                       </div>
                   </div>
   
-                    <div id="romanceCard" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-left">
+                    <div id="romanceCard" value="10749" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-left">
                         <div class="flip-card-inner">
                           <div class="flip-card-front">
                             <h5 class="my-lg-5">Romance</h5>
@@ -179,7 +181,7 @@
                         </div>
                       </div>
   
-                    <div id="sci-fiCard" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-right">
+                    <div id="sci-fiCard" value="878" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-right">
                       <div class="flip-card-inner">
                         <div class="flip-card-front">
                           <h5 class="my-lg-5">Sci-fi</h5>
@@ -190,7 +192,7 @@
                       </div>
                     </div>
   
-                    <div id="thrillerCard" class="flip-card mr-sm-2 ml-sm-2">
+                    <div id="thrillerCard" value="53" class="flip-card mr-sm-2 ml-sm-2">
                       <div class="flip-card-inner">
                         <div class="flip-card-front">
                           <h5 class="my-lg-5">Thriller</h5>
@@ -322,6 +324,27 @@
     </div>
   </div>
 <!--Modal End-->
+
+<!-- movie Modal -->
+<div class="modal fade" id="movieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="movieModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="movieModalBody" class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
