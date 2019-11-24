@@ -32,37 +32,41 @@
   </div>
 </div>
 
-  <form class="clearfix mb-4" action="POST">
-    <div class="form-group">
-      <h3>Submit your <!--*Insert movie watched here*--> movie review.</h3>
-      <label for="userName">Name:</label>
-      <input type="text" id="userNameInput" class="form-control" aria-describedby="example-text" placeholder="Type your name here">
-      <label for="userMovieReview">Movie Review:</label>
-      <textarea class="form-control" id="userMovieReviewInput" aria-describedby="example-description" placeholder="Type your movie review here"></textarea>
-    </div>
-      <button id="submit" class="btn btn-primary float-right">Submit</button>
-  </form>
-
-  <div id="pastReviews">
-    <h3>Past Reviews:</h3>
-    <!--Show previous movie reviews here-->
-  </div>
-
-<div id="footer">
   <div class="container">
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="form-group">
+          <select class="custom-select" id="category">
+            <option selected value="">All Services</option>
+            <option value="Netflix">Netflix</option>
+            <option value="Hulu">Hulu</option>
+            <option value="Amazon Prime">Amazon Prime</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <a class="btn btn-light" href="cms.html">New Post</a>
+      </div>
+    </div>
     <div class="row">
-      <div class="col-md-12">
-        <p class="text-center mb-0">Created by The Stream Team</p>
-        <p class="text-center">Copyright 2019</p>
+      <div class="col-md-12 blog-container">
       </div>
     </div>
   </div>
-</div>
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="/public/js/home.js"></script>
-<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-</body>
+
+  <div id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p class="text-center">Copyright 2019</p>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="./js/cms.js"></script>
       
 </body>
 </html>

@@ -1,18 +1,20 @@
 /* Header CSS Start */
 .logo{
-  height: 35px;
-  margin-bottom: 5px;
-  width: 35px;
+  height: 45px;
+  margin-bottom: 3px;
+  margin-right: 10px;
+  width: 43px;
 }
 
 #header{
-  background-color: #88CC88;
+  background-color: #049669;
   margin-bottom: 10px;
 }
 
 .btn{
+  background-color: #FFF;
 	text-shadow:0 1px 0 #666;
-	box-shadow:1px 1px 2px #7DA37D;
+	box-shadow:1px 1px 2px #049669;
 	opacity:0.95
 }
 
@@ -31,7 +33,7 @@
 
 @-webkit-keyframes glow {
   from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #88CC88, 0 0 40px #88CC88, 0 0 50px #88CC88, 0 0 60px #88CC88, 0 0 70px #88CC88;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #049669, 0 0 40px #049669, 0 0 50px #049669, 0 0 60px #049669, 0 0 70px #049669;
   }
   to {
     text-shadow: 0 0 20px #fff, 0 0 30px #CAF5CA, 0 0 40px #CAF5CA, 0 0 50px #CAF5CA, 0 0 60px #CAF5CA, 0 0 70px #CAF5CA, 0 0 80px #CAF5CA;
@@ -59,10 +61,10 @@ body{
   }
   
   .gallery {
-    background: #88CC88;
-    -webkit-box-shadow: 6px 7px 10px 5px #8CC68C;
-    -moz-box-shadow: 6px 7px 10px 5px #8CC68C;
-    box-shadow: 6px 7px 10px 5px #8CC68C;
+    background: #000;
+    -webkit-box-shadow: 6px 7px 10px 5px rgb(46, 44, 44);
+    -moz-box-shadow: 6px 7px 10px 5px rgb(46, 44, 44);
+    box-shadow: 6px 7px 10px 5px rgb(46, 44, 44);
   }
   
   .gallery-cell {
@@ -82,6 +84,10 @@ body{
     width: 436px;
   }
  /* Carousel CSS End */
+
+.exploreByGenre{
+  color: #FFF;
+}
 
  /* Flip Cards Start */
  .flip-card {
@@ -116,17 +122,33 @@ body{
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-  background-color: #8CC68C;
+  background-color: #FFF;
   color: #000;
 }
 
 /* Style the back side */
 .flip-card-back {
-  background-color: #8CC68C;
+  background-color: #FFF;
   color: #000;
   transform: rotateY(180deg);
 }
  /* Flip Cards End */
+
+/* Parallax Start */
+#movieGenresCards {
+  /* The image used */
+  background-image: url("/public/img/parallax-bg.jpg");
+
+  /* Set a specific height */
+  height: 500px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Parallax End */
 
 .userPost{
   background-color: #CAF5CA;
@@ -135,5 +157,5 @@ body{
 }
 
 #footer{
-  background-color: #88CC88;
+  background-color: #049669;
 }

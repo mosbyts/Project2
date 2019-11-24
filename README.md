@@ -15,8 +15,9 @@ This app was created as part of the University of Richmond Full Stack Flex Web D
 - JavaScript/jQuery
 - Node.js/Express
 - MySQL/Sequelize
-- Flickity
 - TMDB and Utelly APIs
+- Flickity
+- Animate On Scroll (AOS)
 
 ## Creation Process
 o Create HTML page using Bootstrap and CSS for layout and styling
