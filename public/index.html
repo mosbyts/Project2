@@ -1,74 +1,374 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Movie Review</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
+<!DOCTYPE html>
+<html>
 
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="https://webstockreview.net/images/pickle-clipart-gangster-4.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+  <link rel="stylesheet" href="styles/styles.css" media="screen" title="no title" charset="utf-8">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <link rel="stylesheet"href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <title>Pick 'n Chill</title>
 </head>
+
+<!--Header Start-->
 <body>
 <div id="header" class="mb-5">
-  <div class="container">
+  <div class="container-fluid">
     <nav>
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-4">
           <img src="https://webstockreview.net/images/pickle-clipart-gangster-4.png" class="logo">
           &nbsp;
           <h1 class="text-left glow d-inline title">Pick 'n Chill</h1>
         </div>
-        <div class="col-md-3"></div>
-        <div class="col-md-5">
-          <form class="form-inline">
-              <h5 class="text-right d-inline"><a href="#">Sign Up </a></h5>
-              <p class="d-inline"> | </p>
-              <h5 class="text-right d-inline"><a href="#"> Log In</a></h5>
-            <input id="searchMoviesInput" class="form-control" type="search" placeholder="Search" aria-label="Search">
-            <button id="searchMoviesBtn" class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-          </div>
+        <div class="col-4 pr-1">
+            <button id="login" class="btn btn-outline-success float-right" type="button" data-toggle="modal" data-target="#loginModal">Log In</button>
+            <button id="signup" class="btn btn-outline-success float-right" type="button" data-toggle="modal" data-target="#loginModal">Sign Up</button>
+        </div>
+        <div class="col-4 pl-1 row">
+            <div class="col-8 pr-1">
+                <input id="searchMoviesInput" class="form-control" type="search" placeholder="Search" aria-label="Search">
+            </div>
+            <div class="col-4 pl-1">
+                <button id="searchMoviesBtn" class="btn btn-outline-success" type="submit">Search</button>
+            </div>
+        </div>
         </div>
       </div>
     </nav>
   </div>
 </div>
+<!--Header End-->
 
+<!--Home Page Start-->
+<div id="homePage">
+<div id="userSearchDiv">
   <div class="container">
-    <div class="row mt-4">
-      <div class="col-md-4">
-        <div class="form-group">
-          <select class="custom-select" id="category">
-            <option selected value="">All Services</option>
-            <option value="Netflix">Netflix</option>
-            <option value="Hulu">Hulu</option>
-            <option value="Amazon Prime">Amazon Prime</option>
-          </select>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <a class="btn btn-light" href="cms.html">New Post</a>
-      </div>
-    </div>
     <div class="row">
-      <div class="col-md-12 blog-container">
+      <div class="col-3"></div>
+      <div class="col-6">
+        <h4 class="text-center">Your Search</h4>
+          <h5 class="text-left">Movie Title: </h5>
+          <div id="yourSearch" class="mb-2"></div>
+          <h5 class="text-left">Available on: </h5>
+          <div id="availableOn"></div>
+      </div>
+      <div class="col-3"></div>
+    </div>
+  </div>
+</div>
+
+<div id="suggestedMovies" class="mb-5" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="text-left" id="suggestedHolder">This week's suggested movies</h4>
+        <div id="suggestedMoviesGallery" class="gallery"></div>
       </div>
     </div>
   </div>
+</div>
 
+<div id="movieGenresCards">
+<div id="movieGenres" class="mb-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="text-left exploreByGenre" data-aos="fade-right" data-aos-duration="1500">Explore by genre</h4>
+          <div class="card-deck">
 
-  <div id="footer">
+              <div id="actionCard" value="28" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-left">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <h5 class="my-lg-5">Action</h5>
+                    </div>
+                    <div class="flip-card-back">
+                      <p class="my-lg-5">EXPLOSIONS HERE!</p>
+                    </div>
+                  </div>
+              </div>
+
+                <div id="animationCard" value="16" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-right">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <h5 class="my-lg-5">Animation</h5>
+                      </div>
+                      <div class="flip-card-back">
+                        <p class="my-lg-5">Because everybody loves to relive some old memories</p>
+                      </div>
+                    </div>
+                </div>
+
+                  <div id="comedyCard" value="35" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-left">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <h5 class="my-lg-5">Comedy</h5>
+                        </div>
+                        <div class="flip-card-back">
+                          <p class="my-lg-5">Comedians, feel good vibes and life's best medicine: laughter.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                  <div id="documentaryCard" value="99" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-right">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <h5 class="my-lg-5">Documentaries</h5>
+                      </div>
+                      <div class="flip-card-back">
+                        <p class="my-lg-5">The truth about life's mysteries lies here.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="fantasyCard" value="14" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-left">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <h5 class="my-lg-5">Fantasy</h5>
+                      </div>
+                      <div class="flip-card-back">
+                        <p class="my-lg-5">Why dream it when you can see it?</p>
+                      </div>
+                    </div>
+                  </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="movieGenres" class="mb-4">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <p class="text-center">Copyright 2019</p>
+            <div class="card-deck">
+
+                <div id="horrorCard" value="27" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-left">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <h5 class="my-lg-5">Horror</h5>
+                      </div>
+                      <div class="flip-card-back">
+                        <p class="my-lg-5">WATCH OUT! These movies will have you scared to leave your seat.</p>
+                      </div>
+                    </div>
+                </div>
+  
+                  <div id="mysteryCard" value="9648" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-right">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <h5 class="my-lg-5">Mystery</h5>
+                        </div>
+                        <div class="flip-card-back">
+                          <p class="my-lg-5">Shh...it's a mystery.</p>
+                        </div>
+                      </div>
+                  </div>
+  
+                    <div id="romanceCard" value="10749" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-left">
+                        <div class="flip-card-inner">
+                          <div class="flip-card-front">
+                            <h5 class="my-lg-5">Romance</h5>
+                          </div>
+                          <div class="flip-card-back">
+                            <p class="my-lg-5">Love stories that would make the coldest of hearts turn warm.</p>
+                          </div>
+                        </div>
+                      </div>
+  
+                    <div id="sci-fiCard" value="878" class="flip-card mr-sm-2 ml-sm-2" data-aos="flip-right">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <h5 class="my-lg-5">Sci-fi</h5>
+                        </div>
+                        <div class="flip-card-back">
+                          <p class="my-lg-5">There is no future without technology, these movies will prove it!</p>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div id="thrillerCard" value="53" class="flip-card mr-sm-2 ml-sm-2">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <h5 class="my-lg-5">Thriller</h5>
+                        </div>
+                        <div class="flip-card-back">
+                          <p class="my-lg-5">You'll be on the edge of your seat wondering what's next.</p>
+                        </div>
+                      </div>
+                    </div>
+            </div>
         </div>
       </div>
     </div>
   </div>
-    
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="./js/cms.js"></script>
+</div>
+
+<div id="userWatchList" class="mb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <h4 data-aos="fade-right">Your Watchlist</h4>
+            <div id="watch-area" data-aos="fade-right"></div>
+        </div>
+        <div class="col-6">
+        <div id="buildWatchList">
+          <h4 data-aos="fade-right">Build Your Watchlist</h4>
+          <p class="text-left">Add a movie</p>
+          <input class="form-control" type="text" id="title" placeholder="Enter New Movie">
+          <br>
+          <p class="cool-font">Describe how you heard of it</p>
+          <textarea class="form-control" rows="3" id="watch-box" placeholder="Enter Description Here!"></textarea>
+          <button id="watch-submit" type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="right" data-delay= '{ "show": 0, "hide": 1000 }' data-content= 'Movie Added!'>Submit!</button>
+        </div>
+        <!--<div class="container">
+            <h3>Popover Example</h3>
+            <button  data-toggle="popover" title="Movie Added" data-content="Dynamic text here">Toggle popover</button>
+          </div>-->
       
+         
+        </div>
+      </div>
+    </div>
+</div> 
+
+<div id="movieReviews" class="mb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h4>Community Movie Reviews</h4>
+          <div class="form-group">
+            <select class="custom-select" id="category">
+              <option selected value="">All Services</option>
+              <option value="Netflix">Netflix</option>
+              <option value="Hulu">Hulu</option>
+              <option value="Amazon Prime">Amazon Prime</option>
+            </select>
+          </div>
+          <a class="btn btn-light" href="cms.html">New Post</a>
+        <div class="blog-container"></div>
+<!--Add userPost class to each review-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="twitterFeed" class="mb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="text-left">Chatter around the world</h4>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!--Home Page End-->
+
+<!--Genre Page Start-->
+<div id="genrePage" class="mb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6">
+        <h4 id="movieGenre" class="text-center"></h4>
+          <div id="movieGenreDisplay" class="mb-2"></div>
+      </div>
+      <div class="col-3"></div>
+    </div>
+  </div>
+</div>
+<!--Genre Page End-->
+
+<!--Footer Start-->
+<div id="footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <p class="text-center mb-0">Created by The Stream Team</p>
+        <p class="text-center">Copyright 2019</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Footer End-->
+
+<!--Modal Start-->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Log In or Sign Up</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+      <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+         </div>
+        <input name="" class="form-control" placeholder="Email or login" type="email">
+      </div> 
+      </div>
+      <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+         </div>
+          <input class="form-control" placeholder="******" type="password">
+      </div> 
+      </div> 
+      <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-block"> Login  </button>
+      <button type="submit" href="" class="btn btn-primary btn-block"> Sign Up  </button>
+      </div> 
+      <p class="text-center"><a href="#" class="btn">Forgot password?</a></p>
+      </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--Modal End-->
+
+<!-- movie Modal -->
+<div class="modal fade" id="movieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="movieModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="movieModalBody" class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+<script src="js/home.js"></script>
+<script type="text/javascript" src="js/watch.js"></script>
 </body>
+
 </html>
