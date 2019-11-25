@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="styles/styles.css" media="screen" title="no title" charset="utf-8">
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
@@ -212,14 +212,14 @@
 <div id="userWatchList" class="mb-5">
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-6">
           <h4 data-aos="fade-right">Your Watchlist</h4>
             <div id="watch-area" data-aos="fade-right"></div>
         </div>
-        <div class="col-md-6">
+        <div class="col-6">
         <div id="buildWatchList">
           <h4 data-aos="fade-right">Build Your Watchlist</h4>
-          <p class="text-center">Add A Movie</p>
+          <p class="text-left">Add a movie</p>
           <input class="form-control" type="text" id="title" placeholder="Enter New Movie">
           <br>
           <p class="cool-font">Describe how you heard of it</p>
@@ -242,6 +242,16 @@
     <div class="row">
       <div class="col-12">
         <h4>Community Movie Reviews</h4>
+          <div class="form-group">
+            <select class="custom-select" id="category">
+              <option selected value="">All Services</option>
+              <option value="Netflix">Netflix</option>
+              <option value="Hulu">Hulu</option>
+              <option value="Amazon Prime">Amazon Prime</option>
+            </select>
+          </div>
+          <a class="btn btn-light" href="cms.html">New Post</a>
+        <div class="blog-container"></div>
 <!--Add userPost class to each review-->
       </div>
     </div>
@@ -261,7 +271,7 @@
 <!--Home Page End-->
 
 <!--Genre Page Start-->
-<div id="genrePage">
+<div id="genrePage" class="mb-5">
   <div class="container">
     <div class="row">
       <div class="col-3"></div>
@@ -357,7 +367,7 @@
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init();</script>
-<script src="/public/js/home.js"></script>
+<script src="js/home.js"></script>
 <script type="text/javascript" src="js/watch.js"></script>
 </body>
 
