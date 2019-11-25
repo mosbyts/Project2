@@ -7,7 +7,6 @@
 
 // Requiring our Todo model
 var db = require("../models");
-var Watch = require("../models/watch.js");
 
 // Routes
 // =============================================================
@@ -91,7 +90,7 @@ module.exports = function(app) {
     // Sequelize queries are asynchronous, which helps with perceived speed.
     // If we want something to be guaranteed to happen after the query, we'll use
     // the .then function
-    Watch.findAll({}).then(function(results) {
+    db.Watch.findAll({}).then(function(results) {
       // results are available to us inside the .then
       res.json(results);
     });
@@ -100,7 +99,7 @@ module.exports = function(app) {
 
   // Add a watch
   app.post("/api/new", function(req, res) {
-    Watch.create({
+    db.Watch.create({
       title: req.body.title,
       body: req.body.body,
       created_at: req.body.created_at

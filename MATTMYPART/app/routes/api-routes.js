@@ -15,7 +15,7 @@ module.exports = function(app) {
   app.get("/api/all", function(req, res) {
 
     // Finding all watchs, and then returning them to the user as JSON.
-    // Sequelize queries are asynchronous, which helps with perceived speed.
+    // Sequeliize queries are asynchronous, which helps with perceived speed.
     // If we want something to be guaranteed to happen after the query, we'll use
     // the .then function
     Watch.findAll({}).then(function(results) {

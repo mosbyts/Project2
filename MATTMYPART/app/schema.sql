@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS `sequelize_watchlist`;
-CREATE DATABASE `sequelize_watchlist`;
+DROP DATABASE IF EXISTS `projectTwo`;
+CREATE DATABASE `projectTwo`;
