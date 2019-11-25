@@ -2,7 +2,11 @@
 //watch will be watch
 //watchs will be watchlist
 // When user clicks add-btn
+$('[data-toggle="popover"]').popover();
+//$('#watch-submit').popover({delay: { "show": 5000, "hide": 1000 }});
+
 $("#watch-submit").on("click", function(event) {
+
   event.preventDefault();
 
   // Make a newWatch object
@@ -13,6 +17,11 @@ $("#watch-submit").on("click", function(event) {
   };
 
   console.log(newWatch);
+  $("#watch-submit").attr("data-content", "You added " + newWatch.title + " at " + moment(newWatch.created_a).format("h:mma MM-DD"));
+  //$('[data-toggle="popover"]').popover();
+  setTimeout(function() {
+    $('#watch-submit').popover('hide');
+  }, 2000);
 
   // Send an AJAX POST-request with jQuery
   $.post("/api/new", newWatch)
