@@ -42,7 +42,7 @@ function getMovieStreamDetails(movieTitle, action, movieData){
         "headers": {
             "x-rapidapi-host": "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com",
             "x-rapidapi-key": "b3aa10f3e9mshf37294a8e218e44p1da36fjsn46d1b673205b"
-        };
+        }
     };
     if (action === "search"){
         $.ajax(settings).done(function (response) {
