@@ -9,7 +9,7 @@ $(document).ready(function () {
   if (url.indexOf("?post_id=") !== -1) {
     postId = url.split("=")[1];
     getPostData(postId);
-  }
+  };
   // Getting jQuery references to the post body, title, form, and category select
   var bodyInput = $("#body");
   var titleInput = $("#title");
@@ -24,13 +24,13 @@ $(document).ready(function () {
     // Wont submit the post if we are missing a body or a title
     if (!titleInput.val().trim() || !bodyInput.val().trim()) {
       return;
-    }
+    };
     // Constructing a newPost object to hand to the database
     var newPost = {
       title: titleInput.val().trim(),
       body: bodyInput.val().trim(),
       category: postCategorySelect.val()
-    console.log(newPost);
+    };
     // If we're updating a post run updatePost to update a post
     // Otherwise run submitPost to create a whole new post
     if (updating) {
@@ -38,7 +38,7 @@ $(document).ready(function () {
       updatePost(newPost);
     } else {
       submitPost(newPost);
-    }
+    };
   });
   // Submits a new post and brings user to blog page upon completion
   function submitPost(Post) {
@@ -50,7 +50,6 @@ $(document).ready(function () {
   // Gets post data for a post if we're editing
   function getPostData() {
     $.get("/api/posts/", function (data) {
-      console.log(data);
   // Submits a new post and brings user to blog page upon completion
   function submitPost(Post) {
     $.post("/api/posts/", Post, function() {

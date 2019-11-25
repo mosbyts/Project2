@@ -1,5 +1,4 @@
-// js file for populating movie inforation to index.html
-
+// js file for populating movie information to index.html
 /* 
     Test by using the following function calls in inspector on index.html file
 
@@ -43,19 +42,14 @@ function getMovieStreamDetails(movieTitle, action, movieData){
         "headers": {
             "x-rapidapi-host": "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com",
             "x-rapidapi-key": "b3aa10f3e9mshf37294a8e218e44p1da36fjsn46d1b673205b"
-        }
-    }
+        };
+    };
     if (action === "search"){
         $.ajax(settings).done(function (response) {
             let streamingLocations = [];
             for (let i = 0; i < response.results[0].locations.length; i++){
                 streamingLocations.push(response.results[0].locations[i].display_name);
-            }
-            console.log("***Searching UtellyAPI***");
-            console.log(response);
-            console.log("Title: " + response.results[0].name);
-            console.log("Where is it streaming: " + streamingLocations);     
-            
+            };
             let divholder = $("<div>", {id: "result1"});
             let moviePoster = $("<img>", {src: response.results[0].picture, class: "searchedMovieImg text-center"});
             let titleP = $("<p>");
@@ -67,8 +61,8 @@ function getMovieStreamDetails(movieTitle, action, movieData){
                     streamingP.append(streamingLocations[i]);
                 } else {
                     streamingP.append(streamingLocations[i]);
-                }
-            }
+                };
+            };
             divholder.append(titleP);
             divholder.append(moviePoster);
             divholder.appendTo("#yourSearch");
@@ -79,12 +73,10 @@ function getMovieStreamDetails(movieTitle, action, movieData){
             let streamingLocations = [];
             let moviePosterBaseUrl = "http://image.tmdb.org/t/p/w185/";
             let tempObject;
-            //console.log("response");
-            //console.log(response);
             if (response.results[0]){
                 for (let i = 0; i < response.results[0].locations.length; i++){
                     streamingLocations.push(response.results[0].locations[i].display_name);
-                }
+                };
                 tempObject = {
                     title: movieData.title,
                     poster: moviePosterBaseUrl + movieData.poster_path,
@@ -92,9 +84,8 @@ function getMovieStreamDetails(movieTitle, action, movieData){
                     overview: movieData.overview,
                     streamingLocations: streamingLocations,
                     genreID: movieData.genre_ids[0]
-                }  
+                }; 
             } else {
-                //console.log("location not found");
                 tempObject = {
                     title: movieData.title,
                     poster: moviePosterBaseUrl + movieData.poster_path,
@@ -102,13 +93,8 @@ function getMovieStreamDetails(movieTitle, action, movieData){
                     overview: movieData.overview,
                     streamingLocations: "Not Currently Streaming",
                     genreID: movieData.genre_ids[0]
-                }  
-            }
-            //console.log("test");
-            //console.log(movieData);
-             
-            // console.log("tempObject");
-            console.log(tempObject);
+                } ;
+            };
             let divholder = $("<div>");
             let moviePoster = $("<img>", {src: tempObject.poster, class: "searchedMovieImg text-center something", id: tempObject.title});
             let titleP = $("<p>");
@@ -137,45 +123,27 @@ function getMovieStreamDetails(movieTitle, action, movieData){
     } else {
         $.ajax(settings).done(function (response) {
             let streamingLocations = [];
-            console.log(response);
             
             if (response.results[0]){
                 for (let i = 0; i < response.results[0].locations.length; i++){
                     streamingLocations.push(response.results[0].locations[i].display_name);
-                }
-                console.log("Title: " + response.term);
-                console.log("Where is it streaming: " + streamingLocations);
+                };
                 $("#movieModalLabel").text(response.term);
                 $("#movieModalBody").text("Streaming location: "+ streamingLocations);
                 $('#movieModal').modal('show');
             } else {
-                console.log("Title: " + response.term);
-                console.log("Where is it streaming: Currently Not Streaming");
                 $("#movieModalLabel").text(response.term);
                 $("#movieModalBody").text("Currently Not Streaming");
                 $('#movieModal').modal('show');
-            }
-            //console.log("***Searching UtellyAPI***");
-                 
+            };      
         });
-    }
-}
-
-//Search movies by genre click function
-// $("#actionCard").on("click", function(event){
-//     event.preventDefault();
-    // $("#homePage").hide();
-    // $("#genrePage").show();
-//     getMovieGenres();
-// });
+    };
+};
 
 function getMovieGenres(){
     let key = "5f7135150c434e2b62be14b37e1617f5";
     let queryString = "https://api.themoviedb.org/3/genre/movie/list?api_key="+key+"&language=en-US";
-
     $.get(queryString, function(results){
-        console.log("*** Genre search using tMDB api***");
-        console.log(results);
     });
 }
 
@@ -205,9 +173,6 @@ function getMoviesByCategory(catID){
                 //movieObjects.push(streaming);
                 //moviePosters.push(results.results[i].poster_path);
             }
-            //console.log("movies for category - "+ movieGenreArray[i]);
-            //console.log("**Movie Posters links**")
-            //console.log(moviePosters);
         }).then(function(){
             $("#homePage").hide();
             $("#genrePage").show();
@@ -217,24 +182,20 @@ function getMoviesByCategory(catID){
 
 function getPopularMovies(){
     let key = "5f7135150c434e2b62be14b37e1617f5";
-    //let queryString = "https://api.themoviedb.org/3/discover/movie?api_key="+key+"&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1"
     let queryString = "https://api.themoviedb.org/3/discover/movie?api_key="+key+"&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_release_type=4%7C5%7C6&without_genres=80"
     let popularMoviesObject = [];
     let moviePosterBaseUrl = "http://image.tmdb.org/t/p/w185/";
     // example http://image.tmdb.org/t/p/w185//kvpNZAQow5es1tSY6XW2jAZuPPG.jpg ... it does require the double backspace
 
     $.get(queryString, function(results){
-        console.log("*** Get Popular Movies using tMDB api***");
-        console.log(results);
         for (let i = 0; i < 5; i++){
             let tempObject = {
                 title: results.results[i].title,
                 poster: moviePosterBaseUrl + results.results[i].poster_path,
                 releaseDate: results.results[i].release_date
-            }
+            };
             popularMoviesObject.push(tempObject);
-        }
-        console.log(popularMoviesObject);
+        };
         createPopularMovies(popularMoviesObject)
         //put append to html code here
     });

@@ -4,13 +4,9 @@
 
 // Dependencies
 // =============================================================
-
-// Requiring our Todo model
 var db = require("../models");
-
 // Routes
 // =============================================================
-
 //Movie review post API call start
 module.exports = function(app) {
   // GET route for getting all of the reviews
@@ -77,15 +73,11 @@ module.exports = function(app) {
   });
 };
 //Movie review post API call end
-
-
-//Movie watch list API call start
+//Movie watchlist API call start
 // =============================================================
-module.exports = function(app) {
-
+module.exports = function(app){
   // Get all watchs
   app.get("/api/all", function(req, res) {
-
     // Finding all watchs, and then returning them to the user as JSON.
     // Sequelize queries are asynchronous, which helps with perceived speed.
     // If we want something to be guaranteed to happen after the query, we'll use
@@ -94,15 +86,10 @@ module.exports = function(app) {
       // results are available to us inside the .then
       res.json(results);
     });
-
   });
 
   // Add a watch
   app.post("/api/new", function(req, res) {
-    
-    console.log("Watch Data:");
-    console.log(req.body);
-
     db.Watch.create({
       title: req.body.title,
       body: req.body.body,
