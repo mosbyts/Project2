@@ -99,6 +99,10 @@ module.exports = function(app) {
 
   // Add a watch
   app.post("/api/new", function(req, res) {
+    
+    console.log("Watch Data:");
+    console.log(req.body);
+
     db.Watch.create({
       title: req.body.title,
       body: req.body.body,
