@@ -29,6 +29,24 @@
   animation: glow 3s ease-in-out infinite alternate;
 }
 
+.filter {
+  margin-top: 20px;
+}
+
+.new-review {
+  margin-top: 20px;
+}
+
+#reviewText {
+  float: right;
+  margin-top: 30px;
+  margin-right: 80px;
+}
+
+.reviews-container {
+  overflow: auto;
+}
+
 @-webkit-keyframes glow {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #88CC88, 0 0 40px #88CC88, 0 0 50px #88CC88, 0 0 60px #88CC88, 0 0 70px #88CC88;
@@ -136,4 +154,7 @@ body{
 
 #footer{
   background-color: #88CC88;
+  margin-top: 20px;
 }
+
+

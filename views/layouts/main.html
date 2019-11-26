@@ -212,9 +212,9 @@
       </div>
     </div>
 
-    <div id="userWatchList" class="mb-5">
+    
       <div class="container">
-        <div class="row">
+       
           <div class="col-md-5">
             <h4>Your Watchlist</h4>
             <div id="watchlistGallery" class="main-gallery gallery js-flickity"
@@ -237,7 +237,7 @@
           <div id="movieReviews">
             <div class="container">
               <div class="row mt-4">
-                <div class="col-md-4">
+                <div class="col-md-4 filter">
                   <div class="form-group">
                     <select class="custom-select" id="category">
                       <option selected value="">All Subscriptons</option>
@@ -247,8 +247,9 @@
                     </select>
                   </div>
                 </div>
-                <div class="col-md-2">
-                  <a class="btn btn-light" href="/cms">New Review</a>
+                <div class="col-md-8">
+                  <a class="btn btn-light new-review" href="/cms">New Review</a>
+                  <p id="reviewText">Review your favorite movie and tell us where you watched it!</p>
                 </div>
               </div>
               <div class="row">
@@ -257,18 +258,6 @@
               </div>
             </div>
           </div>
-
-          <div id="twitterFeed" class="mb-5">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-12">
-                  <h5 class="text-left">Chatter around the world</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--Home Page End-->
 
         <!--Genre Page Start-->
         <div id="genrePage">

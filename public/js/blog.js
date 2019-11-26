@@ -19,8 +19,7 @@ $(document).ready(function() {
       posts = data;
       if (!posts || !posts.length) {
         displayEmpty();
-      }
-      else {
+      } else {
         initializeRows();
       }
     });
@@ -31,10 +30,9 @@ $(document).ready(function() {
     $.ajax({
       method: "DELETE",
       url: "/api/posts/" + id
-    })
-      .then(function() {
-        getReviews(reviewCategorySelect.val());
-      });
+    }).then(function() {
+      getReviews(reviewCategorySelect.val());
+    });
   }
 
   // Getting the initial list of reviews
@@ -57,18 +55,21 @@ $(document).ready(function() {
     var newPostCardHeading = $("<div>");
     newPostCardHeading.addClass("card-header");
     var deleteBtn = $("<button>");
-    deleteBtn.text("x");
-    deleteBtn.addClass("delete btn btn-danger");
+    deleteBtn.text("DELETE REVIEW");
+    deleteBtn.addClass("delete btn btn-dark");
     var editBtn = $("<button>");
-    editBtn.text("EDIT");
+    editBtn.text("EDIT REVIEW");
     editBtn.addClass("edit btn btn-default");
-    var newPostTitle = $("<h2>");
+    var newPostTitle = $("<h3>");
+    newPostTitle.css({
+      "margin-top": "10px"
+    });
     var newPostCategory = $("<h5>");
     newPostCategory.text(post.category);
     newPostCategory.css({
       float: "right",
       "font-weight": "700",
-      "margin-top": "-15px"
+      "margin-top": "-10px"
     });
     var newPostCardBody = $("<div>");
     newPostCardBody.addClass("card-body");
@@ -111,7 +112,9 @@ $(document).ready(function() {
     reviewContainer.empty();
     var messageH2 = $("<h2>");
     messageH2.css({ "text-align": "center", "margin-top": "50px" });
-    messageH2.html("No reviews yet for this category, navigate <a href='/cms'>here</a> in order to create a new review.");
+    messageH2.html(
+      "No reviews yet for this category, navigate <a href='/cms'>here</a> in order to create a new review."
+    );
     reviewContainer.append(messageH2);
   }
 
