@@ -150,6 +150,25 @@ body{
 }
 /* Parallax End */
 
+/* Reviews Start */
+.filter {
+  margin-top: 20px;
+}
+
+.new-review {
+  margin-top: 20px;
+}
+
+#reviewText {
+  float: right;
+  margin-top: 30px;
+  margin-right: 80px;
+}
+
+.reviews-container {
+  overflow: auto;
+}
+
 .userPost{
   background-color: #CAF5CA;
   border-radius: 15px;

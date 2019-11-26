@@ -1,3 +1,6 @@
+db.Sequelize = Sequelize;
+
+module.exports = db;	module.exports = db;
 // Get references to page elements
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
