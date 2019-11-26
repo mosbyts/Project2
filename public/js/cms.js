@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   // Gets an optional query string from our url (i.e. ?post_id=23)
   var url = window.location.search;
   var postId;
@@ -17,7 +17,6 @@ $(document).ready(function () {
   var postCategorySelect = $("#category");
   // Giving the postCategorySelect a default value
   postCategorySelect.val("Netflix");
-  postCategorySelect.val("Personal");
   // Adding an event listener for when the form is submitted
   $(cmsForm).on("submit", function handleFormSubmit(event) {
     event.preventDefault();
@@ -30,6 +29,7 @@ $(document).ready(function () {
       title: titleInput.val().trim(),
       body: bodyInput.val().trim(),
       category: postCategorySelect.val()
+    };
     console.log(newPost);
     // If we're updating a post run updatePost to update a post
     // Otherwise run submitPost to create a whole new post
@@ -42,19 +42,8 @@ $(document).ready(function () {
   });
   // Submits a new post and brings user to blog page upon completion
   function submitPost(Post) {
-    $.post("/api/posts/", Post, function () {
-      window.location.href = "/index";
-    });
-  }
-
-  // Gets post data for a post if we're editing
-  function getPostData() {
-    $.get("/api/posts/", function (data) {
-      console.log(data);
-  // Submits a new post and brings user to blog page upon completion
-  function submitPost(Post) {
     $.post("/api/posts/", Post, function() {
-      window.location.href = "/blog";
+      window.location.href = "/main";
     });
   }
   // Gets post data for a post if we're editing
@@ -74,23 +63,11 @@ $(document).ready(function () {
   // Update a given post, bring user to the blog page when done
   function updatePost(post) {
     $.ajax({
-        method: "PUT",
-        url: "/api/posts",
-        data: post
-      })
-      .then(function () {
-        window.location.href = "/index";
-      });
-  }
-});
-  // Update a given post, bring user to the blog page when done
-  function updatePost(post) {
-    $.ajax({
       method: "PUT",
       url: "/api/posts",
       data: post
     }).then(function() {
-      window.location.href = "/blog";
+      window.location.href = "/main";
     });
   }
 });

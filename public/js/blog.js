@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  // This function grabs posts from the database and updates the view
-  function getPosts(category) {
   // reviewContainer holds all of our reviews
   var reviewContainer = $(".reviews-container");
   var reviewCategorySelect = $("#category");
@@ -17,47 +15,26 @@ $(document).ready(function() {
       categoryString = "/category/" + categoryString;
     }
     $.get("/api/posts" + categoryString, function(data) {
-      console.log("Posts", data);
+      console.log("Review", data);
       posts = data;
       if (!posts || !posts.length) {
         displayEmpty();
       }
       else {
-      console.log("Review", data);
-      posts = data;
-      if (!posts || !posts.length) {
-        displayEmpty();
-      } else {
         initializeRows();
       }
     });
   }
 
-  // This function does an API call to delete posts
-  function deletePost(id) {
-    $.ajax({
-      method: "DELETE",
-      url: "/api/posts/" + id
-    })
-      .then(function() {
-        getPosts(postCategorySelect.val());
-      });
-  }
-
-  // Getting the initial list of posts
-  getPosts();
-  // InitializeRows handles appending all of our constructed post HTML inside
-  // blogContainer
-  function initializeRows() {
-    blogContainer.empty();
   // This function does an API call to delete reviews
   function deleteReview(id) {
     $.ajax({
       method: "DELETE",
       url: "/api/posts/" + id
-    }).then(function() {
-      getReviews(reviewCategorySelect.val());
-    });
+    })
+      .then(function() {
+        getReviews(reviewCategorySelect.val());
+      });
   }
 
   // Getting the initial list of reviews
@@ -70,10 +47,6 @@ $(document).ready(function() {
     for (var i = 0; i < posts.length; i++) {
       postsToAdd.push(createNewRow(posts[i]));
     }
-    blogContainer.append(postsToAdd);
-  }
-
-  // This function constructs a post's HTML
     reviewContainer.append(postsToAdd);
   }
 
@@ -90,14 +63,11 @@ $(document).ready(function() {
     editBtn.text("EDIT");
     editBtn.addClass("edit btn btn-default");
     var newPostTitle = $("<h2>");
-    var newPostDate = $("<small>");
     var newPostCategory = $("<h5>");
     newPostCategory.text(post.category);
     newPostCategory.css({
       float: "right",
       "font-weight": "700",
-      "margin-top":
-      "-15px"
       "margin-top": "-15px"
     });
     var newPostCardBody = $("<div>");
@@ -105,10 +75,6 @@ $(document).ready(function() {
     var newPostBody = $("<p>");
     newPostTitle.text(post.title + " ");
     newPostBody.text(post.body);
-    var formattedDate = new Date(post.createdAt);
-    formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
-    newPostDate.text(formattedDate);
-    newPostTitle.append(newPostDate);
     newPostCardHeading.append(deleteBtn);
     newPostCardHeading.append(editBtn);
     newPostCardHeading.append(newPostTitle);
@@ -120,9 +86,6 @@ $(document).ready(function() {
     return newPostCard;
   }
 
-  // This function figures out which post we want to delete and then calls
-  // deletePost
-  function handlePostDelete() {
   // This function figures out which review we want to delete and then calls
   // deleteReview
   function handleReviewDelete() {
@@ -130,12 +93,6 @@ $(document).ready(function() {
       .parent()
       .parent()
       .data("post");
-    deletePost(currentPost.id);
-  }
-
-  // This function figures out which post we want to edit and takes it to the
-  // Appropriate url
-  function handlePostEdit() {
     deleteReview(currentPost.id);
   }
 
@@ -149,30 +106,12 @@ $(document).ready(function() {
     window.location.href = "/cms?post_id=" + currentPost.id;
   }
 
-  // This function displays a message when there are no posts
-  function displayEmpty() {
-    blogContainer.empty();
-    var messageH2 = $("<h2>");
-    messageH2.css({ "text-align": "center", "margin-top": "50px" });
-    messageH2.html("No posts yet for this category, navigate <a href='/cms'>here</a> in order to create a new post.");
-    blogContainer.append(messageH2);
-  }
-
-  // This function handles reloading new posts when the category changes
-  function handleCategoryChange() {
-    var newPostCategory = $(this).val();
-    getPosts(newPostCategory);
-  }
-
-});
   // This function displays a message when there are no reviews
   function displayEmpty() {
     reviewContainer.empty();
     var messageH2 = $("<h2>");
     messageH2.css({ "text-align": "center", "margin-top": "50px" });
-    messageH2.html(
-      "No reviews yet for this category, navigate <a href='/cms'>here</a> in order to create a new review."
-    );
+    messageH2.html("No reviews yet for this category, navigate <a href='/cms'>here</a> in order to create a new review.");
     reviewContainer.append(messageH2);
   }
 
