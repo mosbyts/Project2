@@ -14,11 +14,11 @@ $("#watch-submit").on("click", function(event) {
     created_at: moment().format("YYYY-MM-DD HH:mm:ss")
   };
 
-  $("#watch-submit").attr("data-content", "You added " + newWatch.title + " at " + moment(newWatch.created_a).format("h:mma MM-DD"));
+  $("#watch-submit").attr("data-content", "Movie added at " + moment(newWatch.created_a).format("h:mma MM-DD"));
   //$('[data-toggle="popover"]').popover();
   setTimeout(function() {
     $('#watch-submit').popover('hide');
-  }, 2000);
+  }, 3000);
 
   // Send an AJAX POST-request with jQuery
   $.post("/api/new", newWatch)
