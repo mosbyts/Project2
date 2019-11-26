@@ -18,6 +18,7 @@
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",
+    "database": "ln44ddo7omticiw2",
    
   }
 }
