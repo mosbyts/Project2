@@ -19,6 +19,7 @@ $(document).ready(function(){
 
     $(document).on("click", ".something" , function(){
         var title = $(this).attr("id");
+        //alert(title);
         getMovieStreamDetails(title);
     });
 });
@@ -95,9 +96,9 @@ function getMovieStreamDetails(movieTitle, action, movieData){
                     genreID: movieData.genre_ids[0]
                 }
             }
-            let divholder = $("<div>");
+            let divholder = $("<div>", {class: "col-3"});
             let moviePoster = $("<img>", {src: tempObject.poster, class: "searchedMovieImg text-center something", id: tempObject.title});
-            let titleP = $("<p>");
+            let titleP = $("<p>", {class: "mt-3"});
             titleP.append(tempObject.title);
             let streamingP = $("<p>");
             for (let i = 0; i < tempObject.streamingLocations.length; i++){
@@ -111,6 +112,7 @@ function getMovieStreamDetails(movieTitle, action, movieData){
             divholder.append(titleP);
             divholder.append(moviePoster);
             divholder.appendTo("#movieGenreDisplay");
+           
         })
     } else {
         $.ajax(settings).done(function (response) {
@@ -143,6 +145,7 @@ function getMoviesByCategory(catID){
     let key = "5f7135150c434e2b62be14b37e1617f5";
         let queryString = "https://api.themoviedb.org/3/discover/movie?api_key="+key+"&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_year=2018&with_release_type=4%7C5%7C6&with_genres="+catID;
         $.get(queryString, function(results){
+            console.log(results);
             for (let i = 0; i < 20; i++){
                 getMovieStreamDetails(results.results[i].title ,"category", results.results[i]);
             }
