@@ -43,7 +43,7 @@ $(document).ready(function() {
   // Submits a new post and brings user to blog page upon completion
   function submitPost(Post) {
     $.post("/api/posts/", Post, function() {
-      window.location.href = "/index";
+      window.location.href = "index";
     });
   }
   // Gets post data for a post if we're editing
@@ -67,7 +67,7 @@ $(document).ready(function() {
       url: "/api/posts",
       data: post
     }).then(function() {
-      window.location.href = "/index";
+      window.location.href = "index";
     });
   }
 });
