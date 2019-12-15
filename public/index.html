@@ -249,9 +249,29 @@
               <option value="Hulu">Hulu</option>
               <option value="Amazon Prime">Amazon Prime</option>
             </select>
+            <!-- <div class="reviews-container"></div> On load, brings up infinite number of null data-->
           </div>
-          <a class="btn btn-light" href="cms.html">New Post</a>
-        <!-- <div class="reviews-container"></div> -->
+          <h4>Add Your Own Movie Review</h4>
+          <form id="cms">
+            <div class="form-group">
+              <label for="title">Movie Title:</label>
+              <input type="text" class="form-control" id="title">
+              <br />
+              <label for="body">Review:</label>
+              <textarea class="form-control" rows="10" id="body"></textarea>
+              <div class="form-group">
+                <label for="category">Select Subscription:</label>
+                <select class="custom-select" id="category">
+                  <option value="Netflix">Netflix</option>
+                  <option value="Hulu">Hulu</option>
+                  <option value="Amazon Prime">Amazon Prime</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <br />
+              <button type="submit" class="btn btn-success submit btn-lg">Submit</button>
+            </div>
+          </form>
 <!--Add userPost class to each review-->
       </div>
     </div>
@@ -262,6 +282,11 @@
 
 <!--Genre Page Start-->
 <div id="genrePage" class="mb-5">
+  <div class="container">
+    <div class="row">
+      <a class="btn btn-light" href="index.html">Go to Home Page</a>
+    </div>
+  </div>
   <div class="container">
     <div class="row" id="movieGenreDisplay">
     </div>
