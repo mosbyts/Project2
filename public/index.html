@@ -249,13 +249,34 @@
               <option value="Hulu">Hulu</option>
               <option value="Amazon Prime">Amazon Prime</option>
             </select>
+            <!-- <div class="reviews-container"></div> On load, brings up infinite number of null data-->
           </div>
-          <a class="btn btn-light" href="cms.html">New Post</a>
-        <div class="blog-container"></div>
+          <h4>Add Your Own Movie Review</h4>
+          <form id="cms">
+            <div class="form-group">
+              <label for="title">Movie Title:</label>
+              <input type="text" class="form-control" id="title">
+              <br />
+              <label for="body">Review:</label>
+              <textarea class="form-control" rows="10" id="body"></textarea>
+              <div class="form-group">
+                <label for="category">Select Subscription:</label>
+                <select class="custom-select" id="category">
+                  <option value="Netflix">Netflix</option>
+                  <option value="Hulu">Hulu</option>
+                  <option value="Amazon Prime">Amazon Prime</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <br />
+              <button type="submit" class="btn btn-success submit btn-lg">Submit</button>
+            </div>
+          </form>
 <!--Add userPost class to each review-->
       </div>
     </div>
   </div>
+</div>
 </div>
 <!--Home Page End-->
 
@@ -263,12 +284,11 @@
 <div id="genrePage" class="mb-5">
   <div class="container">
     <div class="row">
-      <div class="col-3"></div>
-      <div class="col-6">
-        <h4 id="movieGenre" class="text-center"></h4>
-          <div id="movieGenreDisplay" class="mb-2"></div>
-      </div>
-      <div class="col-3"></div>
+      <a class="btn btn-light" href="index.html">Go to Home Page</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row" id="movieGenreDisplay">
     </div>
   </div>
 </div>
@@ -356,8 +376,10 @@
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init();</script>
-<script src="js/home.js"></script>
 <script type="text/javascript" src="js/watch.js"></script>
+<script type="text/javascript" src="js/home.js"></script>
+<script type="text/javascript" src="js/blog.js"></script>
+<script type="text/javascript" src="js/cms.js"></script>
 </body>
 
 </html>

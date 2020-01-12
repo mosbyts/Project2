@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     category: {
       type: DataTypes.STRING,
-      defaultValue: "Netflix"
+      defaultValue: "Other"
     }
   });
 

@@ -2,7 +2,6 @@
   "development": {
     "username": "root",
     "password": "password",
-    "database": "reviews",
     "database": "projectTwo",
     "host": "127.0.0.1",
     "port": 3306,
@@ -18,7 +17,7 @@
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",
-    "database": "ln44ddo7omticiw2"
+    "dialect": "mysql"
    
   }
 }
