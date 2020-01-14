@@ -2,7 +2,7 @@
 
 ## For Users
 Check out the app at:
-    www.??.com
+    https://picknchill.herokuapp.com/
 
 ## Description
 Pick n' Chill is a movie app that allows users to filter through movies by name, genre or keyword then displays the streaming platforms the movie is available on. Users have the option to add the movie to their watchlist, post on the community board about the movie and tweet about it.
